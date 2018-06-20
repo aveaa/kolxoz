@@ -35,7 +35,7 @@ client.on("guildDelete", guild => {
 
 client.on("guildMemberAdd", (member) => {
     const embed = new Discord.RichEmbed()
-        .setAuthor("Ильич", "https://cdn.discordapp.com/attachments/438026942068031494/443095568399728640/1525085792.jpg")
+        .setAuthor("сонный ильич", "https://cdn.discordapp.com/attachments/438026942068031494/459089749999616015/294036cb89b53cb0.jpg")
         .addField('Зашел на сервер', `${member.user.tag}`, true)
         .addField('ID пользователя', `${member.id}`, true)
         .addField('Онлайн на сервере', `${member.guild.memberCount}`, true)
@@ -98,7 +98,7 @@ client.on("message", async message => {
                 title: "Ой, ошибочка вышла!",
                 description: `Оу, у тебя не получилось задать мне вопрос, попробуй ещё раз.`,
                 footer: {
-                    text: "Ильич",
+                    text: "сонный ильич",
                 },
             }
         });
@@ -108,7 +108,7 @@ client.on("message", async message => {
         let question = args.join(" ");
 
         let ilichask = new Discord.RichEmbed()
-            .setAuthor("Ильич", "https://cdn.discordapp.com/attachments/438026942068031494/443095568399728640/1525085792.jpg")
+            .setAuthor("сонный ильич", "https://cdn.discordapp.com/attachments/438026942068031494/459089749999616015/294036cb89b53cb0.jpg")
             .setColor("#1a1a1a")
             .addField(`Твой вопрос звучал так, ${message.author.username}`, question)
             .addField("Я ответил на него следующим образом", replies[result]);
@@ -133,7 +133,7 @@ client.on("message", async message => {
         let result = Math.floor((Math.random() * replies.length));
 
         let chooseEmbed = new Discord.RichEmbed()
-            .setAuthor("Ильич", "https://cdn.discordapp.com/attachments/438026942068031494/443095568399728640/1525085792.jpg")
+            .setAuthor("сонный ильич", "https://cdn.discordapp.com/attachments/438026942068031494/459089749999616015/294036cb89b53cb0.jpg")
             .setColor("#1a1a1a")
             .addField("Кого же я выбрал, хм... Наверное это", replies[result]);
         message.channel.send(chooseEmbed)
@@ -172,7 +172,7 @@ client.on("message", async message => {
         if (!message.guild.roles.get(roleid)) return message.channel.send(`Роль не найдена..`);
         member.addRole(role.id);
         let em = new Discord.RichEmbed()
-            .setAuthor("Ильич", "https://cdn.discordapp.com/attachments/438026942068031494/443095568399728640/1525085792.jpg")
+            .setAuthor("сонный ильич", "https://cdn.discordapp.com/attachments/438026942068031494/459089749999616015/294036cb89b53cb0.jpg")
             .setColor("#1a1a1a")
             .setDescription(`Роль ${rolename} успешно добавлена к пользователю ${member.user.username}.`)
             .setTimestamp()
@@ -195,7 +195,7 @@ client.on("message", async message => {
         if (!message.guild.roles.get(roleid)) return message.channel.send(`Роль не найдена..`);
         member.removeRole(role.id);
         let em = new Discord.RichEmbed()
-            .setAuthor("Ильич", "https://cdn.discordapp.com/attachments/438026942068031494/443095568399728640/1525085792.jpg")
+            .setAuthor("сонный ильич", "https://cdn.discordapp.com/attachments/438026942068031494/459089749999616015/294036cb89b53cb0.jpg")
             .setColor("#1a1a1a")
             .setDescription(`Роль ${rolename} успешно удалена у пользователя ${member.user.username}.`)
             .setTimestamp()
@@ -247,7 +247,7 @@ client.on("message", async message => {
     const embed = new Discord.RichEmbed()
         .setTitle(`${message.author.username} ушел пинать хуи, скоро вернется`)
         .setColor("#1a1a1a")
-        .setFooter("Ильич")
+        .setFooter("сонный ильич")
     message.channel.send({ embed }).then(function (message) {
         message.react('🔜')
     }).catch(function () { });
@@ -258,7 +258,7 @@ client.on("message", async message => {
         const embed = new Discord.RichEmbed()
             .setTitle(`${message.author.username} вернулся, но продолжает пинать хуи`)
             .setColor("#1a1a1a")
-            .setFooter("Ильич")
+            .setFooter("сонный ильич")
         message.channel.send({ embed }).then(function (message) {
             message.react('🔙')
         }).catch(function () { });
@@ -272,7 +272,7 @@ client.on("message", async message => {
                 title: "Error 405",
                 description: `Пошел нахуй, ты не модератор.`,
                 footer: {
-                    text: "Ильич",
+                    text: "сонный ильич",
                 },
             }
         });
@@ -289,14 +289,14 @@ client.on("message", async message => {
                     title: "Error 405",
                     description: `Тот челик, у которого ты хотел скомуниздить аватарку. Его больше нет, я позаботился об этом.`,
                     footer: {
-                        text: "Ильич",
+                        text: "сонный ильич",
                     },
                 }
             });
         const embed = new Discord.RichEmbed()
             .setTitle(`Аватарка пользователя ${member.user.tag}`)
             .setImage(member.user.avatarURL)
-            .setFooter("Ильич")
+            .setFooter("сонный ильич")
             .setColor("#1a1a1a")
             .setDescription('Аватарка предоставлена по запросу ' + message.author + ' (`' + message.author.tag + '`)')
         message.channel.send({ embed });
@@ -312,7 +312,7 @@ client.on("message", async message => {
                     title: "Error 402",
                     description: `База данных лохов сейчас не доступна, повторите попытку позже`,
                     footer: {
-                        text: "Ильич",
+                        text: "сонный ильич",
                     },
                 }
             });
