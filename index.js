@@ -18,7 +18,7 @@ client.on("ready", () => {
     client.user.setStatus("idle");
 
     function randomStatus() {
-        let status = [`4ch!help`, `Выкрутить лампочку`, `Вкрутить тебе мозг`]
+        let status = [`4ch!help`, `выкрутить лампочку`, `вкрутить тебе мозг`]
         let rstatus = Math.floor(Math.random() * status.length);
         client.user.setActivity(status[rstatus]);
 
@@ -72,7 +72,7 @@ client.on("message", async message => {
         if (['409252455877050369'].includes(message.author.id)) return;
         if (!args[1]) return message.channel.send({
             embed: {
-                color: 16711680,
+                color: 25016626,
                 title: "Жопья ты голова, нихуя у тебя не вышло",
                 description: `Может ты попробуешь адекватно написать вопрос, прежде чем тебя выебут?`,
                 footer: {
@@ -88,8 +88,8 @@ client.on("message", async message => {
         let ilichask = new Discord.RichEmbed()
             .setAuthor("сонный ильич", "https://cdn.discordapp.com/attachments/438026942068031494/459089749999616015/294036cb89b53cb0.jpg")
             .setColor("#1a1a1a")
-            .addField(`Морти, это точно твой вопрос?, ${message.author.username}`, question)
-            .addField("Я ответил на него следующим образом", replies[result]);
+            .addField(`${message.author.username}, это точно твой вопрос?`, question)
+            .addField("Мой ответ - ты приемный", replies[result]);
         message.channel.send(ilichask)
         message.delete();
     }
@@ -99,10 +99,10 @@ client.on("message", async message => {
         if (!args[1]) return message.channel.sendmessage.channel.send({
             embed: {
                 color: 16711680,
-                title: "Ой, ошибочка вышла!",
-                description: `Напиши два слова и повтори попытку позже, лох`,
+                title: "Ой, ты обосрался!",
+                description: `Напиши два слова, а то че ты как пидор`,
                 footer: {
-                    text: "Ильич",
+                    text: "сонный ильич",
                 },
             }
         });
@@ -112,7 +112,7 @@ client.on("message", async message => {
 
         let chooseEmbed = new Discord.RichEmbed()
             .setAuthor("сонный ильич", "https://cdn.discordapp.com/attachments/438026942068031494/459089749999616015/294036cb89b53cb0.jpg")
-            .setColor("#1a1a1a")
+            .setColor("#a4a4a4")
             .addField("Кого же я выбрал, хм... Наверное это", replies[result]);
         message.channel.send(chooseEmbed)
     }
@@ -151,7 +151,7 @@ client.on("message", async message => {
         member.addRole(role.id);
         let em = new Discord.RichEmbed()
             .setAuthor("сонный ильич", "https://cdn.discordapp.com/attachments/438026942068031494/459089749999616015/294036cb89b53cb0.jpg")
-            .setColor("#1a1a1a")
+            .setColor("#a4a4a4")
             .setDescription(`Роль ${rolename} успешно добавлена к пользователю ${member.user.username}.`)
             .setTimestamp()
         message.channel.send({ embed: em })
@@ -174,7 +174,7 @@ client.on("message", async message => {
         member.removeRole(role.id);
         let em = new Discord.RichEmbed()
             .setAuthor("сонный ильич", "https://cdn.discordapp.com/attachments/438026942068031494/459089749999616015/294036cb89b53cb0.jpg")
-            .setColor("#1a1a1a")
+            .setColor("#a4a4a4")
             .setDescription(`Роль ${rolename} успешно удалена у пользователя ${member.user.username}.`)
             .setTimestamp()
         message.channel.send({ embed: em })
@@ -224,7 +224,7 @@ client.on("message", async message => {
     message.delete();
     const embed = new Discord.RichEmbed()
         .setTitle(`${message.author.username} ушел пинать хуи, скоро вернется`)
-        .setColor("#1a1a1a")
+        .setColor("#a4a4a4")
         .setFooter("сонный ильич")
     message.channel.send({ embed }).then(function (message) {
         message.react('🔜')
