@@ -72,7 +72,7 @@ client.on("message", async message => {
         if (['409252455877050369'].includes(message.author.id)) return;
         if (!args[1]) return message.channel.send({
             embed: {
-                color: 25016626,
+                color: "#FAA61A",
                 title: "Жопья ты голова, нихуя у тебя не вышло",
                 description: `Может ты попробуешь адекватно написать вопрос, прежде чем тебя выебут?`,
                 footer: {
