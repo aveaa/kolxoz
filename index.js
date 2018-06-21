@@ -15,10 +15,10 @@ client.on('typingStop', (channel, user) => {
 
 client.on("ready", () => {
     console.log(`Ильич включен, находится на ${client.guilds.size} серверах`);
-    client.user.setStatus("dnd");
+    client.user.setStatus("idle");
 
     function randomStatus() {
-        let status = [`4ch help`, `Сломать твое ебало.exe`]
+        let status = [`4ch!help`, `Выкрутить лампочку`, `Вкрутить тебе мозг`]
         let rstatus = Math.floor(Math.random() * status.length);
         client.user.setActivity(status[rstatus]);
 
@@ -33,41 +33,19 @@ client.on("guildDelete", guild => {
     console.log(`Соединение прервано с сервером ${guild.name} (id: ${guild.id})`);
 });
 
-client.on("guildMemberAdd", (member) => {
-    const embed = new Discord.RichEmbed()
-        .setAuthor("сонный ильич", "https://cdn.discordapp.com/attachments/438026942068031494/459089749999616015/294036cb89b53cb0.jpg")
-        .addField('Зашел на сервер', `${member.user.tag}`, true)
-        .addField('ID пользователя', `${member.id}`, true)
-        .addField('Онлайн на сервере', `${member.guild.memberCount}`, true)
-        .setColor("#1a1a1a")
-        .setTimestamp();
-    client.channels.get('455733014719234048').send({ embed });
-});
-
-client.on("guildMemberRemove", (member) => {
-    const embed = new Discord.RichEmbed()
-        .setAuthor("Ильич", "https://cdn.discordapp.com/attachments/438026942068031494/443095568399728640/1525085792.jpg")
-        .addField('Вышел с сервера', `${member.user.tag}`, true)
-        .addField('ID пользователя', `${member.id}`, true)
-        .addField('Онлайн на сервере', `${member.guild.memberCount}`, true)
-        .setColor("#1a1a1a")  
-        .setTimestamp();
-    client.channels.get('455733014719234048').send({ embed });
-});
-
 client.on("message", async message => {
     
     if (message.channel.type === 'dm') {
         if (['327872942124040192'].includes(message.author.id)) return;
-        client.channels.get('443473891843768330').send('Сообщение от '+message.author+': ```'+message.content.replace(/`/g, "`" + String.fromCharCode(8203))+'```')
+        client.channels.get('459459476970405909').send('Сообщение от '+message.author+': ```'+message.content.replace(/`/g, "`" + String.fromCharCode(8203))+'```')
     }
 
-    if (message.content.startsWith('https://github.com/privetstn', 'https://github.com/privetstn/ilich')) {
+    if (message.content.startsWith('https://github.com/strinblya', 'https://github.com/strinblya/kolxoz')) {
         message.delete();
     }
 
     if (message.content === "Ильич") {
-        message.channel.send("Чтобы получить помощь по боту пропиши `4ch help`");
+        message.channel.send("Чтобы получить помощь по боту пропиши `4ch!help`");
     }
 
     if (message.author.bot) return;
@@ -95,8 +73,8 @@ client.on("message", async message => {
         if (!args[1]) return message.channel.send({
             embed: {
                 color: 16711680,
-                title: "Ой, ошибочка вышла!",
-                description: `Оу, у тебя не получилось задать мне вопрос, попробуй ещё раз.`,
+                title: "Жопья ты голова, нихуя у тебя не вышло",
+                description: `Может ты попробуешь адекватно написать вопрос, прежде чем тебя выебут?`,
                 footer: {
                     text: "сонный ильич",
                 },
@@ -110,7 +88,7 @@ client.on("message", async message => {
         let ilichask = new Discord.RichEmbed()
             .setAuthor("сонный ильич", "https://cdn.discordapp.com/attachments/438026942068031494/459089749999616015/294036cb89b53cb0.jpg")
             .setColor("#1a1a1a")
-            .addField(`Твой вопрос звучал так, ${message.author.username}`, question)
+            .addField(`Морти, это точно твой вопрос?, ${message.author.username}`, question)
             .addField("Я ответил на него следующим образом", replies[result]);
         message.channel.send(ilichask)
         message.delete();
