@@ -72,7 +72,7 @@ client.on("message", async message => {
         if (['409252455877050369'].includes(message.author.id)) return;
         if (!args[1]) return message.channel.send({
             embed: {
-                color: "#FAA61A",
+                color: 16711680,
                 title: "Жопья ты голова, нихуя у тебя не вышло",
                 description: `Может ты попробуешь адекватно написать вопрос, прежде чем тебя выебут?`,
                 footer: {
@@ -80,16 +80,16 @@ client.on("message", async message => {
                 },
             }
         });
-        let replies = ["Да", "Нет", "Да хуй его знает", "Мне похуй", "Ебись оно конем", "Твой вопрос слишком охуеннен для советского народа",  "Не лезь блять, она тебя сожрет", "А ты неплох, хочу я тебе сказать", "А не пошел бы ты нахуй?"];
+        let replies = ["Да", "Нет", "Да хуй его знает", "Мне похуй", "Ебись оно конем", "Иди нахуй",  "Не лезь блять, она тебя сожрет", "Сразу видно, что ты пидор", "А не пошел бы ты нахуй?"];
 
         let result = Math.floor((Math.random() * replies.length));
         let question = args.join(" ");
 
         let ilichask = new Discord.RichEmbed()
             .setAuthor("сонный ильич", "https://cdn.discordapp.com/attachments/438026942068031494/459089749999616015/294036cb89b53cb0.jpg")
-            .setColor("#1a1a1a")
+            .setColor("#a4a4a4")
             .addField(`${message.author.username}, это точно твой вопрос?`, question)
-            .addField("Мой ответ - ты приемный", replies[result]);
+            .addField("Мой ответ ~~ты приемный~~", replies[result]);
         message.channel.send(ilichask)
         message.delete();
     }
@@ -113,7 +113,7 @@ client.on("message", async message => {
         let chooseEmbed = new Discord.RichEmbed()
             .setAuthor("сонный ильич", "https://cdn.discordapp.com/attachments/438026942068031494/459089749999616015/294036cb89b53cb0.jpg")
             .setColor("#a4a4a4")
-            .addField("Кого же я выбрал, хм... Наверное это", replies[result]);
+            .addField("Я выбрал ~~дать тебе по ебалу~~", replies[result]);
         message.channel.send(chooseEmbed)
     }
 
@@ -139,47 +139,47 @@ client.on("message", async message => {
     }
 
     if (command === 'addrole' || command === 'arole') {
-        if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply("Вы не являетесь модератором.");
+        if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply("Не охуел ли ты, тучееб сраный?");
         let role = message.mentions.roles.first();
-        if (!role) return message.channel.send(`Выберите роль.`);
+        if (!role) return message.channel.send(`Выберите роль бутылки.`);
         let member = message.mentions.members.first();
         if (!member) return message.channel.send("Выберите пользователя.");
         let roleid = role.id;
         let rolename = role.name;
 
-        if (!message.guild.roles.get(roleid)) return message.channel.send(`Роль не найдена..`);
+        if (!message.guild.roles.get(roleid)) return message.channel.send(`Роль не могу найти, а твою мать нашел`);
         member.addRole(role.id);
         let em = new Discord.RichEmbed()
             .setAuthor("сонный ильич", "https://cdn.discordapp.com/attachments/438026942068031494/459089749999616015/294036cb89b53cb0.jpg")
             .setColor("#a4a4a4")
-            .setDescription(`Роль ${rolename} успешно добавлена к пользователю ${member.user.username}.`)
+            .setDescription(`Роль ${rolename} успешно прихуевана к пользователю ${member.user.username}.`)
             .setTimestamp()
         message.channel.send({ embed: em })
         if (member.displayName) {
-            em.setDescription(`Роль ${rolename} успешно добавлена к пользователю ${member.displayName}.`)
+            em.setDescription(`Роль ${rolename} успешно прихуевана к пользователю ${member.displayName}.`)
         }
         message.delete();
     };
 
     if (command === 'removerole' || command === 'rrole') {
-        if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply("Вы не являетесь модератором.");
+        if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply("Вы не являетесь собутыльником.");
         let role = message.mentions.roles.first();
-        if (!role) return message.channel.send(`Выберите роль.`);
+        if (!role) return message.channel.send(`Выберите хуйроль.`);
         let member = message.mentions.members.first();
-        if (!member) return message.channel.send("Выберите пользователя.");
+        if (!member) return message.channel.send("Выберите зере ~~сдохни пж~~.");
         let roleid = role.id;
         let rolename = role.name;
 
-        if (!message.guild.roles.get(roleid)) return message.channel.send(`Роль не найдена..`);
+        if (!message.guild.roles.get(roleid)) return message.channel.send(`Роль не найдена, а вот твоя почка уже у меня`);
         member.removeRole(role.id);
         let em = new Discord.RichEmbed()
             .setAuthor("сонный ильич", "https://cdn.discordapp.com/attachments/438026942068031494/459089749999616015/294036cb89b53cb0.jpg")
             .setColor("#a4a4a4")
-            .setDescription(`Роль ${rolename} успешно удалена у пользователя ${member.user.username}.`)
+            .setDescription(`Роль ${rolename} успешно отхуевана у пользователя ${member.user.username}.`)
             .setTimestamp()
         message.channel.send({ embed: em })
         if (member.displayName) {
-            em.setDescription(`Роль ${rolename} успешно удалена у пользователя ${member.displayName}.`)
+            em.setDescription(`Роль ${rolename} успешно отхуевана у пользователя ${member.displayName}.`)
         }
         message.delete();
     };
@@ -223,7 +223,7 @@ client.on("message", async message => {
     if (command === 'off') {
     message.delete();
     const embed = new Discord.RichEmbed()
-        .setTitle(`${message.author.username} ушел пинать хуи, скоро вернется`)
+        .setTitle(`${message.author.username} ушел раздавать ебыча, скоро вернется`)
         .setColor("#a4a4a4")
         .setFooter("сонный ильич")
     message.channel.send({ embed }).then(function (message) {
@@ -234,8 +234,8 @@ client.on("message", async message => {
     if (command === 'on') {
         message.delete();
         const embed = new Discord.RichEmbed()
-            .setTitle(`${message.author.username} вернулся, но продолжает пинать хуи`)
-            .setColor("#1a1a1a")
+            .setTitle(`${message.author.username} вернулся, но продолжает раздавать ебычи`)
+            .setColor("#a4a4a4")
             .setFooter("сонный ильич")
         message.channel.send({ embed }).then(function (message) {
             message.react('🔙')
@@ -248,14 +248,14 @@ client.on("message", async message => {
             embed: {
                 color: 16711680,
                 title: "Error 405",
-                description: `Пошел нахуй, ты не модератор.`,
+                description: `Ах ты пидор, под мусора закосить хотел?`,
                 footer: {
                     text: "сонный ильич",
                 },
             }
         });
         const members = message.guild.members.filter(member => member.user.presence.game && /(discord\.(gg|io|me)\/.+|discordapp\.com\/invite\/.+)/i.test(member.user.presence.game.name));
-        return message.channel.send(members.map(member => `\`${member.id}\` ${member.displayName}`).join("\n") || "Мазохистов, которые ставят в статус игры ссылку на сервер не найдено.");
+        return message.channel.send(members.map(member => `\`${member.id}\` ${member.displayName}`).join("\n") || "Пидрил ебаных я не нашел, да и хер с ними");
     }
 
     if (command === "аватарка" || command === "avatar" || command === "av" || command === "ав") {
@@ -265,23 +265,23 @@ client.on("message", async message => {
                 embed: {
                     color: 16711680,
                     title: "Error 405",
-                    description: `Тот челик, у которого ты хотел скомуниздить аватарку. Его больше нет, я позаботился об этом.`,
+                    description: `У тебя нет ебальника, уж извини.`,
                     footer: {
                         text: "сонный ильич",
                     },
                 }
             });
         const embed = new Discord.RichEmbed()
-            .setTitle(`Аватарка пользователя ${member.user.tag}`)
+            .setTitle(`Ебало пользователя ${member.user.tag}`)
             .setImage(member.user.avatarURL)
             .setFooter("сонный ильич")
-            .setColor("#1a1a1a")
-            .setDescription('Аватарка предоставлена по запросу ' + message.author + ' (`' + message.author.tag + '`)')
+            .setColor("#a4a4a4")
+            .setDescription('Хлебасосина предоставлена по запросу ' + message.author + ' (`' + message.author.tag + '`)')
         message.channel.send({ embed });
         message.delete();
     }
 
-    if (command === "lox" || command === "lo" || command === "лох" || command === "ло") {
+    if (command === "pidor" || command === "pidar" || command === "пидар" || command === "пидор") {
         let member = message.mentions.members.first();
         if (!member)
             return message.channel.send({
@@ -297,8 +297,8 @@ client.on("message", async message => {
         const embed = new Discord.RichEmbed()
             .setTitle(`Я провел работу по поиску лохов, ${message.member.displayName}`)
             .setFooter("Ильич")
-            .setColor("#1a1a1a")
-            .setDescription('Оказалось, что лохчмо вот этот пользователь, ' + member.user + '')
+            .setColor("#a4a4a4")
+            .setDescription('Оказалось, что челик, который обосрался и расквасил все свое говно по улице это ' + member.user + '')
         message.channel.send({ embed });
         message.delete();
     }
@@ -312,15 +312,15 @@ client.on("message", async message => {
                     title: "Error 402",
                     description: `Фух, вроде пронесло. Ильич этаж попутал.`,
                     footer: {
-                        text: "Ильич",
+                        text: "сонный ильич",
                     },
                 }
             });
         const embed = new Discord.RichEmbed()
             .setTitle(`${message.member.displayName}, отправил смску ${member.user.tag} с следующим содержанием`)
-            .setFooter("Ильич")
-            .setColor("#1a1a1a")
-            .setDescription('Брей пизду и ноги, Илюха уже в дороге')
+            .setFooter("сонный ильич")
+            .setColor("#a4a4a4")
+            .setDescription('Ну, считай что тебе пизда')
         message.channel.send({ embed });
         message.delete();
     }
@@ -358,7 +358,7 @@ client.on("message", async message => {
         const embed = new Discord.RichEmbed()
         embed.setAuthor(message.author.tag, message.author.avatarURl)
         embed.setTitle('Информация об сервере', message.channel.guild.name)
-        embed.setColor("#1a1a1a")
+        embed.setColor("#a4a4a4")
         embed.setThumbnail(message.channel.guild.iconURL)
         embed.addField('ID сервера', message.channel.guild.id, false)
         embed.addField('Владелец сервера', message.channel.guild.owner, true)
@@ -407,8 +407,9 @@ client.on("message", async message => {
             status_word = 'Смотрит';
 
         const embed = new Discord.RichEmbed()
-            .setAuthor("Ильич", "https://cdn.discordapp.com/attachments/438026942068031494/443095568399728640/1525085792.jpg")
+            .setAuthor("сонный ильич", "https://cdn.discordapp.com/attachments/438026942068031494/459089749999616015/294036cb89b53cb0.jpg")
             .setTitle('Статус изменен на:')
+            .setColor("#FAA61A")
             .setDescription(`${status_word} **${status.replace(/` /g, "\\\'")}**`);
         message.channel.send({ embed });
         message.delete();
@@ -417,8 +418,8 @@ client.on("message", async message => {
     if (command === "создатель" || command === "creator" || command === "разработчик" || command === "coder") {
         const embed = new Discord.RichEmbed()
             .setTitle(`${message.member.displayName}`)
-            .setFooter("Ильич")
-            .setColor("#1a1a1a")
+            .setFooter("сонный ильич")
+            .setColor("#a4a4a4")
             .setDescription('Разработчик этого бота... Вабба Лабба Даб Даб!')
         message.channel.send({ embed });
         message.delete();
@@ -428,8 +429,8 @@ client.on("message", async message => {
         let urls = ['https://cdn.discordapp.com/attachments/398493223225393155/453632588913836032/Z53rDN4nz5w.png', 'https://cdn.discordapp.com/attachments/417266234032390155/453619499548278784/fzlXVdacsRw.png', 'https://cdn.discordapp.com/attachments/417266234032390155/450997044203487232/qnxzAZBNUOY.jpg', 'https://cdn.discordapp.com/attachments/417266234032390155/439493461465366559/1524836581.jpg', 'https://cdn.discordapp.com/attachments/398493223225393155/427015490909765643/cChuWmm4tYs.png', 'https://cdn.discordapp.com/attachments/417266234032390155/426837230750007296/IXKmXEGGy4M.pnghttps://cdn.discordapp.com/attachments/417266234032390155/426837230750007296/IXKmXEGGy4M.png', 'https://cdn.discordapp.com/attachments/417266234032390155/426834094530232340/UXrIekEGmn0.png', 'https://cdn.discordapp.com/attachments/417266234032390155/425382301430579200/1521487257.jpg', 'https://cdn.discordapp.com/attachments/417266234032390155/425381351366197268/1521489210.jpg', 'https://cdn.discordapp.com/attachments/417266234032390155/425380837211766796/1521489086.jpg', 'https://cdn.discordapp.com/attachments/417266234032390155/425378101078261760/1521488435.jpg', 'https://cdn.discordapp.com/attachments/417266234032390155/425377710437564418/1521488343.jpg', 'https://cdn.discordapp.com/attachments/417266234032390155/425374507281154058/1521487571.jpg', 'https://cdn.discordapp.com/attachments/417266234032390155/425374290473517097/1521487521.jpg', 'https://cdn.discordapp.com/attachments/417266234032390155/425374012919513090/X53H8a-6mXI.jpg', 'https://cdn.discordapp.com/attachments/417266234032390155/425373637650939924/1521487371.jpg', 'https://cdn.discordapp.com/attachments/417266234032390155/422393484260147201/itMfgO57bko.png', 'https://cdn.discordapp.com/attachments/417266234032390155/422377721780502529/1520626932.jpg', 'https://cdn.discordapp.com/attachments/417266234032390155/421782343112589319/1520630969.jpg', 'https://cdn.discordapp.com/attachments/417266234032390155/421764894900355073/1520626941.jpg', 'https://cdn.discordapp.com/attachments/417266234032390155/419583500321161228/1519757973.jpg', 'https://cdn.discordapp.com/attachments/417266234032390155/419591495822082058/Pke5MphbrmM.png', 'https://cdn.discordapp.com/attachments/417266234032390155/419579325977985066/1.png', 'https://media.discordapp.net/attachments/398493223225393155/423164901155012608/W3HVmKHR6Gc.png', 'https://cdn.discordapp.com/attachments/398493223225393155/419575003776942082/1520079220.jpg', 'https://cdn.discordapp.com/attachments/398493223225393155/410156233773809666/1517859248.jpg', 'https://cdn.discordapp.com/attachments/398493223225393155/410154428595830806/1517858792.jpg', 'https://cdn.discordapp.com/attachments/398493223225393155/408331096606900234/cfywLN1aTp4.png', 'https://media.discordapp.net/attachments/398493223225393155/398494040968003584/XGAJAwowz_A.jpg', 'https://cdn.discordapp.com/attachments/440552492317802496/453966988272992256/S1ee51OoIv0.jpg', 'https://cdn.discordapp.com/attachments/440552492317802496/453967103070961693/ox5poCzXgC8.jpg', 'https://cdn.discordapp.com/attachments/440552492317802496/453967273544122368/dhYHPYVsOzE.jpg', 'https://cdn.discordapp.com/attachments/398493223225393155/453972253093134336/lUGSXAC6gtA.png', 'https://cdn.discordapp.com/attachments/398493223225393155/453972507217625128/FNpC-cdJIHk.png', 'https://cdn.discordapp.com/attachments/398493223225393155/453972784951853056/3tTVDYp7Zuw.png', 'https://media.discordapp.net/attachments/398493223225393155/453973118906662923/Kb8LoT4BS6M.png', 'https://cdn.discordapp.com/attachments/398493223225393155/453973668461150208/C67ua6lmAak.png', 'https://cdn.discordapp.com/attachments/398493223225393155/453974346269065234/B0-1kZgRqU4.png', 'https://cdn.discordapp.com/attachments/398493223225393155/453976173903347712/g22NjV-3crY.png', 'https://cdn.discordapp.com/attachments/438026942068031494/453978707191791616/pQwzHKsF8dE.png', 'https://cdn.discordapp.com/attachments/438026942068031494/453979156804534283/EMCN0ecVDIo.png', 'https://cdn.discordapp.com/attachments/438026942068031494/453980489712271360/SZbEgZKH4wE.png', 'https://cdn.discordapp.com/attachments/417266234032390155/453980853178204172/JQWT_qdqcv8.png', 'https://cdn.discordapp.com/attachments/438026942068031494/453981574514475039/wZYc7tVdiZQ.png', 'https://cdn.discordapp.com/attachments/438026942068031494/453981574514475039/wZYc7tVdiZQ.png', 'https://cdn.discordapp.com/attachments/438026942068031494/453982462947622923/8TZloh5-7h0.png', 'https://cdn.discordapp.com/attachments/438026942068031494/453985371793915917/5rGys5tRfg4.png', 'https://cdn.discordapp.com/attachments/438026942068031494/453986158821507082/G4u7BHfjPRY.png', 'https://cdn.discordapp.com/attachments/438026942068031494/453988065455636481/z5n_LqVZJQY.png'];
         const embed = new Discord.RichEmbed()
             .setTitle(`${message.member.displayName}, ога, мемасы смотреш?`)
-            .setFooter("Ильич")
-            .setColor("#1a1a1a")
+            .setFooter("сонный ильич")
+            .setColor("#a4a4a4")
             .setImage(urls[Math.floor(Math.random() * urls.length)])
         message.channel.send({ embed });
         message.delete();
@@ -439,13 +440,13 @@ client.on("message", async message => {
     if (command === "battle" || command === "fight" || command === "бой" || command === "битва") {
         const embed = new Discord.RichEmbed()
             .setAuthor(message.member.displayName, message.author.avatarURL)
-            .setColor("#1c1c1c")
+            .setColor("#a4a4a4")
             .setDescription("Вызываю тебя на бой, кусок дерьма")
         message.channel.send({ embed: embed }).then(() => {
             setTimeout(() => {
                 const embed1 = new Discord.RichEmbed()
                     .setAuthor("Ильич", "https://cdn.discordapp.com/attachments/438026942068031494/443095568399728640/1525085792.jpg")
-                    .setColor("#1c1c1c")
+                    .setColor("#a4a4a4")
                     .setDescription("Че ты там вякнул, лошпевич?")
                     .setImage("https://cdn.discordapp.com/attachments/417266234032390155/457816607482445824/1529036170.jpg");
                 message.channel.send({ embed: embed1 });
@@ -456,9 +457,9 @@ client.on("message", async message => {
 
     if ((command === "ushelp" || command === "ushel" || command === "юсхелп" || command === "усхелп")   && ['327872942124040192', '421030089732653057', '361951318929309707', '222746438814138368'].includes(message.author.id)) {
         const embed = new Discord.RichEmbed()
-            .setAuthor("Ильич", "https://cdn.discordapp.com/attachments/438026942068031494/443095568399728640/1525085792.jpg")
+            .setAuthor("сонный ильич", "https://cdn.discordapp.com/attachments/438026942068031494/459089749999616015/294036cb89b53cb0.jpg")
             .setTitle(`${message.member.displayName}, тебе интересен принцип работы`)
-            .setColor("#36393e")
+            .setColor("#FAA61A")
             .setDescription('US (`User Say`) - позволяет говорить от имени Ильича в личных сообщениях .\n' +
             'Структура команды выглядит вот так: \n' +
             '`4ch us [id пользователя] [сообщение]` \n')
@@ -468,9 +469,9 @@ client.on("message", async message => {
 
     if ((command === "rshelp" || command === "rshel" || command === "рсхелп" || command === "рсхэлп") && ['327872942124040192', '421030089732653057', '361951318929309707', '222746438814138368'].includes(message.author.id)) {
         const embed = new Discord.RichEmbed()
-            .setAuthor("Ильич", "https://cdn.discordapp.com/attachments/438026942068031494/443095568399728640/1525085792.jpg")
+            .setAuthor("сонный ильич", "https://cdn.discordapp.com/attachments/438026942068031494/459089749999616015/294036cb89b53cb0.jpg")
             .setTitle(`${message.member.displayName}, тебе интересен принцип работы`)
-            .setColor("#36393e")
+            .setColor("#FAA61A")
             .setDescription('RS (`Remote Say`) - позволяет говорить от имени Ильича в каналах, где у него есть доступ.\n' +
             'Структура команды выглядит вот так: \n' +
             '`4ch rs [id канала, в котором вы хотите написать от имени бота] [сообщение]` \n')
@@ -480,9 +481,9 @@ client.on("message", async message => {
 
     if (command === "avhelp" || command === "avatarhelp" || command === "аватархелп" || command === "авхэлп") {
         const embed = new Discord.RichEmbed()
-            .setAuthor("Ильич", "https://cdn.discordapp.com/attachments/438026942068031494/443095568399728640/1525085792.jpg")
+            .setAuthor("сонный ильич", "https://cdn.discordapp.com/attachments/438026942068031494/459089749999616015/294036cb89b53cb0.jpg")
             .setTitle(`${message.member.displayName}, тебе интересен принцип работы`)
-            .setColor("#36393e")
+            .setColor("#FAA61A")
             .setDescription('Аватар (`Avatar`) - Команда Ильича, отображающая аватар другого пользователя\n' +
             'Структура команды выглядит вот так: \n' +
             '`4ch avatar @user` \n')
@@ -492,9 +493,9 @@ client.on("message", async message => {
 
     if (command === "sayhelp" || command === "shelp" || command === "скажихелп" || command === "схэлп") {
         const embed = new Discord.RichEmbed()
-            .setAuthor("Ильич", "https://cdn.discordapp.com/attachments/438026942068031494/443095568399728640/1525085792.jpg")
+            .setAuthor("сонный ильич", "https://cdn.discordapp.com/attachments/438026942068031494/459089749999616015/294036cb89b53cb0.jpg")
             .setTitle(`${message.member.displayName}, тебе интересен принцип работы`)
-            .setColor("#36393e")
+            .setColor("#FAA61A")
             .setDescription('Команда Say (`скажи`) - позволяет писать от имени Ильича в любых каналах. Данная команда доступна каждому.\n' +
             'Структура команды выглядит вот так: \n' +
             '`4ch say [сообщение]` \n')
@@ -504,9 +505,9 @@ client.on("message", async message => {
 
     if (command === "iluxahelp" || command === "iluxohelp" || command === "илюхахелп" || command === "илюшахэлп") {
         const embed = new Discord.RichEmbed()
-            .setAuthor("Ильич", "https://cdn.discordapp.com/attachments/438026942068031494/443095568399728640/1525085792.jpg")
+            .setAuthor("сонный ильич", "https://cdn.discordapp.com/attachments/438026942068031494/459089749999616015/294036cb89b53cb0.jpg")
             .setTitle(`${message.member.displayName}, тебе интересен принцип работы`)
-            .setColor("#36393e")
+            .setColor("#FAA61A")
             .setDescription('Iluxa (`Илюха`) - Команда Ильича, позволяющая отправить смску пользователю с некоторым содержанием\n' +
             'Структура команды выглядит вот так: \n' +
             '`4ch iluxa @user` \n')
@@ -516,9 +517,9 @@ client.on("message", async message => {
 
     if (command === "loxhelp" || command === "losharahelp" || command === "лоххелп" || command === "лоххэлп") {
         const embed = new Discord.RichEmbed()
-            .setAuthor("Ильич", "https://cdn.discordapp.com/attachments/438026942068031494/443095568399728640/1525085792.jpg")
+            .setAuthor("сонный ильич", "https://cdn.discordapp.com/attachments/438026942068031494/459089749999616015/294036cb89b53cb0.jpg")
             .setTitle(`${message.member.displayName}, тебе интересен принцип работы`)
-            .setColor("#36393e")
+            .setColor("#FAA61A")
             .setDescription('Lox (`лох`) - Команда Ильича, обзывающая определенного участника лохом\n' +
             'Структура команды выглядит вот так: \n' +
             '`4ch lox @user` \n')
@@ -528,9 +529,9 @@ client.on("message", async message => {
 
     if (command === "smshelp" || command === "mmshelp" || command === "смсхелп" || command === "ммсхэлп") {
         const embed = new Discord.RichEmbed()
-            .setAuthor("Ильич", "https://cdn.discordapp.com/attachments/438026942068031494/443095568399728640/1525085792.jpg")
+            .setAuthor("сонный ильич", "https://cdn.discordapp.com/attachments/438026942068031494/459089749999616015/294036cb89b53cb0.jpg")
             .setTitle(`${message.member.displayName}, тебе интересен принцип работы`)
-            .setColor("#36393e")
+            .setColor("#FAA61A")
             .setDescription('SMS (`СМС`) - позволяет передавать сообщения пользователя другому пользователю.\n' +
             'Структура команды выглядит вот так: \n' +
             '`4ch sms @user [сообщение]` \n')
@@ -540,9 +541,9 @@ client.on("message", async message => {
 
     if (command === "askhelp" || command === "ahelp" || command === "вопросхелп" || command === "вхелп") {
         const embed = new Discord.RichEmbed()
-            .setAuthor("Ильич", "https://cdn.discordapp.com/attachments/438026942068031494/443095568399728640/1525085792.jpg")
+            .setAuthor("сонный ильич", "https://cdn.discordapp.com/attachments/438026942068031494/459089749999616015/294036cb89b53cb0.jpg")
             .setTitle(`${message.member.displayName}, тебе интересен принцип работы`)
-            .setColor("#36393e")
+            .setColor("#FAA61A")
             .setDescription('ask (`Вопрос`) - позволяет задать вопрос лично Ильичу.\n' +
             'Структура команды выглядит вот так: \n' +
             '`4ch ask [сообщение]` \n')
@@ -552,9 +553,9 @@ client.on("message", async message => {
 
     if (command === "choosehelp" || command === "chhelp" || command === "выбратьхелп" || command === "выборхелп") {
         const embed = new Discord.RichEmbed()
-            .setAuthor("Ильич", "https://cdn.discordapp.com/attachments/438026942068031494/443095568399728640/1525085792.jpg")
+            .setAuthor("сонный ильич", "https://cdn.discordapp.com/attachments/438026942068031494/459089749999616015/294036cb89b53cb0.jpg")
             .setTitle(`${message.member.displayName}, тебе интересен принцип работы`)
-            .setColor("#36393e")
+            .setColor("#FAA61A")
             .setDescription('choose (`выбор`) - позволяет выбрать из двух слов одно.\n' +
             'Структура команды выглядит вот так: \n' +
             '`4ch choose [сообщение1] [сообщение2]` \n')
@@ -566,8 +567,8 @@ client.on("message", async message => {
 
         const embed = new Discord.RichEmbed()
             .setTitle(`А вот и помощь подъехала, ${message.member.displayName}`)
-            .setFooter("Ильич")
-            .setColor("#1a1a1a")
+            .setFooter("сонный ильич")
+            .setColor("#a4a4a4")
             .setDescription(
             'Основной префикс бота **4ch **\n' +
             ' \n' +
@@ -592,39 +593,6 @@ client.on("message", async message => {
             '`4ch askhelp` или `4ch вопросхелп`\n' +
             '`4ch choosehelp` или `4ch выборхелп`\n' +
             '`4ch smshelp` или `4ch смсхелп`'
-            )
-        message.channel.send({ embed });
-        message.delete();
-    }
-
-    if (command === "голос" || command === "войс" || command === "голас" || command === "голоз" || command === "галас" || command === "глас" || command === "voice" || command === "sound" || command === "music" || command === "vhelp") {
-
-        const embed = new Discord.RichEmbed()
-            .setTitle(`Ммм, голосовухи значит, ${message.member.displayName}`)
-            .setFooter("Ильич")
-            .setColor("#1a1a1a")
-            .setDescription(
-            'Основной префикс бота **4ch **\n' +
-            ' \n' +
-            '`4ch ор 1` - Ты че, дурак блять?\n' +
-            '`4ch ор 2` - Вы кто такие, я вас не звал, идите нахуй\n' +
-            '`4ch ор 3` - Майнкрафт это моя жизнь\n' +
-            '`4ch ор 4` - Лежать + сосать\n' +
-            '`4ch ор 5` - Это. Просто. Охуенно.\n' +
-            '`4ch ор 6` - Орущий дед опять сошёл с ума\n' +
-            '`4ch ор 7` - М, я ем, пошел нахуй\n' +
-            '`4ch ор 8` - Ну че народ, погнали нахуй?\n' +
-            '`4ch ор 9` - Вот это поворот\n' +
-            ' \n' +
-            'Аналог данной команды - `4ch dank`:\n' +
-            '`4ch dank 1` - bitconneeeeeeeect\n' +
-            '`4ch dank 2` - Димон\n' +
-            '`4ch dank 3` - Skoopidy Woop\n' +
-            '`4ch dank 4` - Смех\n' +
-            '`4ch dank 5` - Ты втираешь мне какую-то дичь\n' +
-            '`4ch dank 6` - Running in the 90s\n' +
-            '`4ch dank 7` - sponge beds\n' +
-            '`4ch dank 8` - лютик блять\n'
             )
         message.channel.send({ embed });
         message.delete();
