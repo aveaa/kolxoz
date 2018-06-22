@@ -487,6 +487,8 @@ client.on("message", async message => {
         message.delete();
     }
 
+
+
     if ((command === "ushelp" || command === "ushel" || command === "юсхелп" || command === "усхелп")   && ['327872942124040192', '421030089732653057', '361951318929309707', '222746438814138368'].includes(message.author.id)) {
         const embed = new Discord.RichEmbed()
             .setAuthor("сонный ильич", "https://cdn.discordapp.com/attachments/438026942068031494/459089749999616015/294036cb89b53cb0.jpg")
@@ -494,7 +496,7 @@ client.on("message", async message => {
             .setColor("#FAA61A")
             .setDescription('US (`User Say`) - позволяет говорить от имени Ильича в личных сообщениях .\n' +
             'Структура команды выглядит вот так: \n' +
-            '`4ch us [id пользователя] [сообщение]` \n')
+            '`4ch!us [id пользователя] [сообщение]` \n')
         message.author.send({ embed });
         message.delete();
     }
@@ -506,7 +508,7 @@ client.on("message", async message => {
             .setColor("#FAA61A")
             .setDescription('RS (`Remote Say`) - позволяет говорить от имени Ильича в каналах, где у него есть доступ.\n' +
             'Структура команды выглядит вот так: \n' +
-            '`4ch rs [id канала, в котором вы хотите написать от имени бота] [сообщение]` \n')
+            '`4ch!rs [id канала, в котором вы хотите написать от имени бота] [сообщение]` \n')
         message.author.send({ embed });
         message.delete();
     }
@@ -518,7 +520,7 @@ client.on("message", async message => {
             .setColor("#FAA61A")
             .setDescription('Аватар (`Avatar`) - Команда Ильича, отображающая аватар другого пользователя\n' +
             'Структура команды выглядит вот так: \n' +
-            '`4ch avatar @user` \n')
+            '`4ch!avatar @user` \n')
         message.author.send({ embed });
         message.delete();
     }
@@ -530,7 +532,7 @@ client.on("message", async message => {
             .setColor("#FAA61A")
             .setDescription('Команда Say (`скажи`) - позволяет писать от имени Ильича в любых каналах. Данная команда доступна каждому.\n' +
             'Структура команды выглядит вот так: \n' +
-            '`4ch say [сообщение]` \n')
+            '`4ch!say [сообщение]` \n')
         message.author.send({ embed });
         message.delete();
     }
@@ -542,7 +544,7 @@ client.on("message", async message => {
             .setColor("#FAA61A")
             .setDescription('Iluxa (`Илюха`) - Команда Ильича, позволяющая отправить смску пользователю с некоторым содержанием\n' +
             'Структура команды выглядит вот так: \n' +
-            '`4ch iluxa @user` \n')
+            '`4ch!iluxa @user` \n')
         message.author.send({ embed });
         message.delete();
     }
@@ -554,7 +556,7 @@ client.on("message", async message => {
             .setColor("#FAA61A")
             .setDescription('Lox (`лох`) - Команда Ильича, обзывающая определенного участника лохом\n' +
             'Структура команды выглядит вот так: \n' +
-            '`4ch lox @user` \n')
+            '`4ch!lox @user` \n')
         message.author.send({ embed });
         message.delete();
     }
@@ -566,7 +568,7 @@ client.on("message", async message => {
             .setColor("#FAA61A")
             .setDescription('SMS (`СМС`) - позволяет передавать сообщения пользователя другому пользователю.\n' +
             'Структура команды выглядит вот так: \n' +
-            '`4ch sms @user [сообщение]` \n')
+            '`4ch!sms @user [сообщение]` \n')
         message.author.send({ embed });
         message.delete();
     }
@@ -578,7 +580,7 @@ client.on("message", async message => {
             .setColor("#FAA61A")
             .setDescription('ask (`Вопрос`) - позволяет задать вопрос лично Ильичу.\n' +
             'Структура команды выглядит вот так: \n' +
-            '`4ch ask [сообщение]` \n')
+            '`4ch!ask [сообщение]` \n')
         message.author.send({ embed });
         message.delete();
     }
@@ -590,7 +592,16 @@ client.on("message", async message => {
             .setColor("#FAA61A")
             .setDescription('choose (`выбор`) - позволяет выбрать из двух слов одно.\n' +
             'Структура команды выглядит вот так: \n' +
-            '`4ch choose [сообщение1] [сообщение2]` \n')
+            '`4ch!choose [сообщение1] [сообщение2]` \n')
+        message.author.send({ embed });
+        message.delete();
+    }
+
+    if (command === "инвайт" || command === "приглашение" || command === "invite") {
+        const embed = new Discord.RichEmbed()
+            .setAuthor("сонный ильич", "https://cdn.discordapp.com/attachments/438026942068031494/459089749999616015/294036cb89b53cb0.jpg")
+            .setColor("#FAA61A")
+            .addField("Приглашение бота на сервер", "[Для того, чтобы добавить бота на сервер, достаточно нажать сюда](https://discordapp.com/oauth2/authorize?client_id=459066612184645633&scope=bot&permissions=2146958591)")
         message.author.send({ embed });
         message.delete();
     }
@@ -602,29 +613,29 @@ client.on("message", async message => {
             .setFooter("сонный ильич")
             .setColor("#a4a4a4")
             .setDescription(
-            'Основной префикс бота **4ch **\n' +
+            'Основной префикс бота **4ch!**\n' +
             ' \n' +
-            '`4ch аватар` или `4ch avatar` - покажу, каким я в последний раз видел вашего друга (может и вас тоже)\n' +
-            '`4ch лох` или `4ch lox` - найду того, кто последний раз вас отпиздил\n' +
-            '`4ch илюха` или `4ch iluxa` - позвоним Илюхе\n' +
-            '`4ch sms` или `4ch смс` - отправлю смс выбранному чуваку\n' +
-            '`4ch off` - оповещаю о том, что вы отошли\n' +
-            '`4ch on` - оповещаю о том, что вы подошли\n' +
-            '`4ch разработчик` или `4ch creator` - подскажу, кто из этой толпы мой создатель\n' +
-            '`4ch бой` или `4ch fight` - потренеруюсь с тобой в силе\n' +
-            '`4ch скажи` или `4ch say` - горланю анекдоты про лупу и пупу за вас\n' +
-            '`4ch мемы` или `4ch meme` - кидаю мемчики\n' +
-            '`4ch выбор` или `4ch choose` - выбираю из двух зол худшее\n' +
-            '`4ch вопрос` или `4ch ask` - задай мне вопрос ~~(это не пиар аск.фм)~~\n' +
+            '`4ch!аватар` или `4ch!avatar` - покажу, каким я в последний раз видел вашего друга (может и вас тоже)\n' +
+            '`4ch!лох` или `4ch!lox` - найду того, кто последний раз вас отпиздил\n' +
+            '`4ch!илюха` или `4ch!iluxa` - позвоним Илюхе\n' +
+            '`4ch!sms` или `4ch!смс` - отправлю смс выбранному чуваку\n' +
+            '`4ch!off` - оповещаю о том, что вы отошли\n' +
+            '`4ch!on` - оповещаю о том, что вы подошли\n' +
+            '`4ch!разработчик` или `4ch!creator` - подскажу, кто из этой толпы мой создатель\n' +
+            '`4ch!бой` или `4ch!fight` - потренеруюсь с тобой в силе\n' +
+            '`4ch!скажи` или `4ch!say` - горланю анекдоты про лупу и пупу за вас\n' +
+            '`4ch!мемы` или `4ch!meme` - кидаю мемчики\n' +
+            '`4ch!выбор` или `4ch!choose` - выбираю из двух зол худшее\n' +
+            '`4ch!вопрос` или `4ch!ask` - задай мне вопрос ~~(это не пиар аск.фм)~~\n' +
             ' \n' +
             'Если вы не поняли, как действует команда, советую обратиться к таким командам как:\n' +
-            '`4ch avhelp` или `4ch авхелп`\n' +
-            '`4ch sayhelp` или `4ch скажихелп`\n' +
-            '`4ch loxhelp` или `4ch лоххелп`\n' +
-            '`4ch iluxahelp` или `4ch илюхахелп`\n' +
-            '`4ch askhelp` или `4ch вопросхелп`\n' +
-            '`4ch choosehelp` или `4ch выборхелп`\n' +
-            '`4ch smshelp` или `4ch смсхелп`'
+            '`4ch!avhelp` или `4ch!авхелп`\n' +
+            '`4ch!sayhelp` или `4ch!скажихелп`\n' +
+            '`4ch!loxhelp` или `4ch!лоххелп`\n' +
+            '`4ch!iluxahelp` или `4ch!илюхахелп`\n' +
+            '`4ch!askhelp` или `4ch!вопросхелп`\n' +
+            '`4ch!choosehelp` или `4ch!выборхелп`\n' +
+            '`4ch!smshelp` или `4ch!смсхелп`'
             )
         message.channel.send({ embed });
         message.delete();
