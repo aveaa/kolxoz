@@ -44,7 +44,7 @@ client.on("message", async message => {
         message.delete();
     }
 
-    if (message.content === "Ильич") {
+    if (message.content === "Skeleton") {
         message.channel.send("Чтобы получить помощь по боту пропиши `4ch!help`");
     }
 
@@ -80,16 +80,16 @@ client.on("message", async message => {
                 },
             }
         });
-        let replies = ["Да", "Нет", "Да хуй его знает", "Мне похуй", "Ебись оно конем", "Иди нахуй",  "Не лезь блять, она тебя сожрет", "Сразу видно, что ты пидор", "А не пошел бы ты нахуй?"];
+        let replies = ["Да", "Нет", "Да хуй его знает", "Мне похуй", "Ебись ты конем", "Иди нахуй",  "Не лезь блять, она тебя сожрет", "Сразу видно, что ты пидор", "А не пошел бы ты нахуй?"];
 
         let result = Math.floor((Math.random() * replies.length));
         let question = args.join(" ");
 
         let ilichask = new Discord.RichEmbed()
-            .setAuthor("сонный ильич", "https://cdn.discordapp.com/attachments/438026942068031494/459089749999616015/294036cb89b53cb0.jpg")
+            .setThumbnail("https://cdn.discordapp.com/attachments/460444540784869397/460805563589066752/8ball3.gif")
             .setColor("#a4a4a4")
             .addField(`${message.author.username}, это точно твой вопрос?`, question)
-            .addField("Мой ответ ~~ты приемный~~", replies[result]);
+            .addField("Хорошо, мой ответ", replies[result]);
         message.channel.send(ilichask)
         message.delete();
     }
@@ -604,7 +604,7 @@ client.on("message", async message => {
             .addField("Приглашение бота на сервер", "[Для того, чтобы добавить бота на сервер, достаточно нажать сюда](https://discordapp.com/oauth2/authorize?client_id=459066612184645633&scope=bot&permissions=2146958591)")
         message.author.send({ embed });
         message.delete();
-    }
+    }    
 
     if (command === "помощь" || command === "помошь" || command === "помощ" || command === "помош" || command === "помоги" || command === "памаги" || command === "помаги" || command === "хэлп" || command === "хелп" || command === "help") {
 
