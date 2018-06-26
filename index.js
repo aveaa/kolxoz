@@ -85,12 +85,13 @@ client.on("message", async message => {
         let result = Math.floor((Math.random() * replies.length));
         let question = args.join(" ");
 
-        let ilichask = new Discord.RichEmbed()
+        let jackask = new Discord.RichEmbed()
             .setThumbnail("https://cdn.discordapp.com/attachments/460444540784869397/460805563589066752/8ball3.gif")
-            .setColor("#a4a4a4")
+            .setColor("#5581F1")
             .addField(`${message.author.username}, это точно твой вопрос?`, question)
-            .addField("Хорошо, мой ответ", replies[result]);
-        message.channel.send(ilichask)
+            .addField("Хорошо, мой ответ", replies[result])
+            .setFooter("Skeleton Jack");
+        message.channel.send(jackask)
         message.delete();
     }
 
@@ -111,9 +112,10 @@ client.on("message", async message => {
         let result = Math.floor((Math.random() * replies.length));
 
         let chooseEmbed = new Discord.RichEmbed()
-            .setAuthor("сонный ильич", "https://cdn.discordapp.com/attachments/438026942068031494/459089749999616015/294036cb89b53cb0.jpg")
-            .setColor("#a4a4a4")
-            .addField("Я выбрал ~~дать тебе по ебалу~~", replies[result]);
+            .setThumbnail("https://cdn.discordapp.com/attachments/460444540784869397/460810101746434078/thinking.gif")
+            .setColor("#5581F1")
+            .addField("Я выбрал", replies[result])
+            .setFooter("Skeleton Jack");
         message.channel.send(chooseEmbed)
     }
 
@@ -150,8 +152,8 @@ client.on("message", async message => {
         if (!message.guild.roles.get(roleid)) return message.channel.send(`Роль не могу найти, а твою мать нашел`);
         member.addRole(role.id);
         let em = new Discord.RichEmbed()
-            .setAuthor("сонный ильич", "https://cdn.discordapp.com/attachments/438026942068031494/459089749999616015/294036cb89b53cb0.jpg")
-            .setColor("#a4a4a4")
+            .setThumbnail("https://cdn.discordapp.com/attachments/460444540784869397/460819080102805504/time_to.gif")
+            .setColor("#5581F1")
             .setDescription(`Роль ${rolename} успешно прихуевана к пользователю ${member.user.username}.`)
             .setTimestamp()
         message.channel.send({ embed: em })
@@ -173,8 +175,8 @@ client.on("message", async message => {
         if (!message.guild.roles.get(roleid)) return message.channel.send(`Роль не найдена, а вот твоя почка уже у меня`);
         member.removeRole(role.id);
         let em = new Discord.RichEmbed()
-            .setAuthor("сонный ильич", "https://cdn.discordapp.com/attachments/438026942068031494/459089749999616015/294036cb89b53cb0.jpg")
-            .setColor("#a4a4a4")
+            .setThumbnail("https://cdn.discordapp.com/attachments/460444540784869397/460818960166682636/vantuz.gif")
+            .setColor("#5581F1")
             .setDescription(`Роль ${rolename} успешно отхуевана у пользователя ${member.user.username}.`)
             .setTimestamp()
         message.channel.send({ embed: em })
@@ -224,8 +226,9 @@ client.on("message", async message => {
     message.delete();
     const embed = new Discord.RichEmbed()
         .setTitle(`${message.author.username} ушел раздавать ебыча, скоро вернется`)
-        .setColor("#a4a4a4")
-        .setFooter("сонный ильич")
+        .setThumbnail("https://cdn.discordapp.com/attachments/460444540784869397/460818163018366996/moves2.gif")
+        .setColor("#5581F1")
+        .setFooter("Skeleton Jack")
     message.channel.send({ embed }).then(function (message) {
         message.react('🔜')
     }).catch(function () { });
@@ -235,8 +238,9 @@ client.on("message", async message => {
         message.delete();
         const embed = new Discord.RichEmbed()
             .setTitle(`${message.author.username} вернулся, но продолжает раздавать ебычи`)
-            .setColor("#a4a4a4")
-            .setFooter("сонный ильич")
+            .setThumbnail("https://cdn.discordapp.com/attachments/460444540784869397/460818215417806848/bananaskeleton.gif")
+            .setColor("#5581F1")
+            .setFooter("Skeleton Jack")
         message.channel.send({ embed }).then(function (message) {
             message.react('🔙')
         }).catch(function () { });
@@ -258,7 +262,7 @@ client.on("message", async message => {
         return message.channel.send(members.map(member => `\`${member.id}\` ${member.displayName}`).join("\n") || "Пидрил ебаных я не нашел, да и хер с ними");
     }
 
-    if (command === "аватарка" || command === "avatar" || command === "av" || command === "ав") {
+    if (command === "аватар" || command === "avatar" || command === "av" || command === "ав") {
         let member = message.mentions.members.first();
         if (!member)
             return message.channel.send({
@@ -274,8 +278,8 @@ client.on("message", async message => {
         const embed = new Discord.RichEmbed()
             .setTitle(`Ебало пользователя ${member.user.tag}`)
             .setImage(member.user.avatarURL)
-            .setFooter("сонный ильич")
-            .setColor("#a4a4a4")
+            .setColor("#5581F1")
+            .setFooter("Skeleton Jack")
             .setDescription('Хлебасосина предоставлена по запросу ' + message.author + ' (`' + message.author.tag + '`)')
         message.channel.send({ embed });
         message.delete();
@@ -328,8 +332,9 @@ client.on("message", async message => {
             });
         const embed = new Discord.RichEmbed()
             .setTitle(`Я провел работу по поиску лохов, ${message.member.displayName}`)
-            .setFooter("Ильич")
-            .setColor("#a4a4a4")
+            .setThumbnail("https://cdn.discordapp.com/attachments/460444540784869397/460820822014165003/come_back.gif")
+            .setColor("#5581F1")
+            .setFooter("Skeleton Jack")
             .setDescription('Оказалось, что челик, который обосрался и расквасил все свое говно по улице это ' + member.user + '')
         message.channel.send({ embed });
         message.delete();
@@ -350,9 +355,10 @@ client.on("message", async message => {
             });
         const embed = new Discord.RichEmbed()
             .setTitle(`${message.member.displayName}, отправил смску ${member.user.tag} с следующим содержанием`)
-            .setFooter("сонный ильич")
-            .setColor("#a4a4a4")
-            .setDescription('Ну, считай что тебе пизда')
+            .setThumbnail("https://cdn.discordapp.com/attachments/460444540784869397/460821297887182860/bus.gif")
+            .setColor("#5581F1")
+            .setFooter("Skeleton Jack")
+            .setDescription('Ну, считай что тебе пизда, ибо я уже еду')
         message.channel.send({ embed });
         message.delete();
     }
