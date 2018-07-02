@@ -663,7 +663,14 @@ client.on("message", async message => {
         } catch (e) {}
     }
     
-    
+    if (command === "soy") {
+        const say = args.join(" ");
+        const embed = new Discord.RichEmbed()
+            .setColor("#6d94de")
+            .setDescription(say)
+
+        let nick = client.user.username; if (message.member.nickname != null) nick = client.user.username; client.fetchWebhook('451409503943131186', 'WXLLCGDPnaZeDhtiYEPl4QTTdehoHEumXyravvImDR1VB-NFnSrUEHnZl3Q32E5rfMil').then(webhook => { webhook.send('', { username: nick, embeds: [embed] }).catch(console.error); }).catch(console.error);
+    }
 
 });
 
