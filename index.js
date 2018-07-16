@@ -88,7 +88,7 @@ client.on("message", async message => {
         if (['409252455877050369'].includes(message.author.id)) return;
         if (!args[1]) return message.channel.send({
             embed: {
-                color: 16711680,
+                color: 1710618,
                 title: "Ой, ошибочка вышла!",
                 description: `Оу, у тебя не получилось задать мне вопрос, попробуй ещё раз.`,
                 footer: {
@@ -114,7 +114,7 @@ client.on("message", async message => {
 
         if (!args[1]) return message.channel.sendmessage.channel.send({
             embed: {
-                color: 437918208,
+                color: 16711680,
                 title: "Ой, ошибочка вышла!",
                 description: `Напиши два слова и повтори попытку позже, лох`,
                 footer: {
