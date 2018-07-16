@@ -463,42 +463,6 @@ client.on("message", async message => {
         message.delete();
     }
 
-    if (command === "splooter1" || command === "sp1" || command === "spoper1" || command === "splatir1") {
-        const embed = new Discord.RichEmbed()
-            .setColor("#1a1a1a")
-            .setTitle("Error 400")
-            .setDescription("Пупа и лупа получили зарплату... А, это уже совсем другая история")
-        message.channel.send({ embed: embed }).then(() => {
-            setTimeout(() => {
-                const embed1 = new Discord.RichEmbed()
-                    .setColor("#1c1c1c")
-                    .setDescription("Ладно-ладно, не урчи. Я нашел фоточки <@329240046337261569>")
-                    .setImage("https://cdn.discordapp.com/attachments/410871297040711680/423164560363487242/ezgif.com-gif-maker.gif")
-                    .setFooter("Ильич");
-                message.author.send({ embed: embed1 });
-            }, 3000);
-        });
-        message.delete();
-    }
-
-    if (command === "splooter2" || command === "sp2" || command === "spoper2" || command === "splatir2") {
-        const embed = new Discord.RichEmbed()
-            .setColor("#1a1a1a")
-            .setTitle("Error 401")
-            .setDescription("Опять произошла ошибка? Не урчи, ща разберемся.")
-        message.channel.send({ embed: embed }).then(() => {
-            setTimeout(() => {
-                const embed1 = new Discord.RichEmbed()
-                    .setColor("#1c1c1c")
-                    .setDescription("Ошибка произошла, но внезапный интернет помог мне доставить твой запрос")
-                    .setImage("https://cdn.discordapp.com/attachments/410871297040711680/423187820388286464/ezgif.com-crop2.gif")
-                    .setFooter("Ильич");
-                message.author.send({ embed: embed1 });
-            }, 3500);
-        });
-        message.delete();
-    }
-
     if (command === "battle" || command === "fight" || command === "бой" || command === "битва") {
         const embed = new Discord.RichEmbed()
             .setAuthor(message.member.displayName, message.author.avatarURL)
@@ -635,6 +599,8 @@ client.on("message", async message => {
         message.delete();
     }
 
+
+
     if (command === "помощь" || command === "помошь" || command === "помощ" || command === "помош" || command === "помоги" || command === "памаги" || command === "помаги" || command === "хэлп" || command === "хелп" || command === "help") {
 
         const embed = new Discord.RichEmbed()
@@ -737,6 +703,32 @@ client.on("message", async message => {
             let disp = conn.playFile('sounds/ili4_' + args[0] + '.mp3');
             disp.on('end', () => { conn.disconnect() });
         })
+    }
+
+    if ((command === 'konnor') && ['327872942124040192', '421030089732653057', '361951318929309707', '222746438814138368'].includes(message.author.id)) {
+        if (message.guild.voiceConnection) return;
+        if (!message.member.voiceChannel) return;
+        message.delete();
+        message.member.voiceChannel.join().then(conn => {
+            let disp = conn.playFile('sounds/konnor.mp3');
+            disp.on('end', () => { conn.disconnect() });
+        })
+        const embed = new Discord.RichEmbed()
+            .setTitle(`${message.member.displayName}, детройт значит?`)
+            .setColor("#1a1a1a")
+            .setDescription('28 УДАРОВ НОЖОМ!\n' +
+            'ТЫ ДЕЙСТВОВАЛ НАВЕРНЯКА, ДА?!!\n' +
+            'ЭТО БЫЛА НЕНАВИСТЬ?\n' +
+            'ГНЕВ?\n' +
+            'ОН БЫЛ В КРОВИ, УМОЛЯЛ О ПОЩАДЕ, НО ТЫ СНОВА И СНОВА НАНОСИЛ ЕМУ УДАРЫ!!!\n' +
+            'Я ЗНАЮ - ТЫ УБИЙЦА.\n' +
+            'ПОЧЕМУ ТЫ НЕ ПРИЗНАЕШЬ!?!??!\n' +
+            'ПРОИЗНЕСИ: Я. ЕГО. УБИЛ. ЭТО ЧТО, ТАК СЛОЖНО??!??\n' +
+            'ПРИЗНАЙСЯ ЧТО УБИЛ!! \n' +
+            'ПРИЗНАЙСЯ!\n')
+            .setFooter("Ильич");
+        message.author.send({ embed });
+        message.delete();
     }
 
 });
