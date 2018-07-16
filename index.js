@@ -14,6 +14,16 @@ client.on('typingStop', (channel, user) => {
 });
 
 client.on("ready", () => {
+    const embed = new Discord.RichEmbed()
+        .setColor("#1a1a1a")
+        .setAuthor("Ильич", "https://cdn.discordapp.com/attachments/438026942068031494/443095568399728640/1525085792.jpg")
+        .setDescription('Протокол `Ильич` успешно запушен.')
+        .addField("Хочешь проверить, все ли функционирует?", "[Нажми на данную ссылку](https://www.heroku.com)")
+        .setTimestamp();
+    client.channels.get('468445836116754432').send({ embed });
+});
+
+client.on("ready", () => {
     console.log(`Ильич включен, находится на ${client.guilds.size} серверах`);
     client.user.setStatus("dnd");
 
@@ -114,7 +124,7 @@ client.on("message", async message => {
 
         if (!args[1]) return message.channel.sendmessage.channel.send({
             embed: {
-                color: 16711680,
+                color: 1710618,
                 title: "Ой, ошибочка вышла!",
                 description: `Напиши два слова и повтори попытку позже, лох`,
                 footer: {
@@ -263,7 +273,7 @@ client.on("message", async message => {
         message.delete();
         if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send({
             embed: {
-                color: 16711680,
+                color: 1710618,
                 title: "Error 405",
                 description: `Пошел нахуй, ты не модератор.`,
                 footer: {
@@ -280,7 +290,7 @@ client.on("message", async message => {
         if (!member)
             return message.channel.send({
                 embed: {
-                    color: 16711680,
+                    color: 1710618,
                     title: "Error 405",
                     description: `Тот челик, у которого ты хотел скомуниздить аватарку. Его больше нет, я позаботился об этом.`,
                     footer: {
@@ -325,9 +335,9 @@ client.on("message", async message => {
         if (!member)
             return message.channel.send({
                 embed: {
-                    color: 16711680,
-                    title: "Error 402",
-                    description: `Фух, вроде пронесло. Ильич этаж попутал.`,
+                    color: 1710618,
+                    title: "Произошел сбой.",
+                    description: 'Вероятно, ты допустил какую-либо ошибку. Подробнее можно узнать запустив команду `4ch iluxahelp`.',
                     footer: {
                         text: "Ильич",
                     },
