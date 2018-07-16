@@ -114,7 +114,7 @@ client.on("message", async message => {
 
         if (!args[1]) return message.channel.sendmessage.channel.send({
             embed: {
-                color: 1710618,
+                color: 437918208,
                 title: "Ой, ошибочка вышла!",
                 description: `Напиши два слова и повтори попытку позже, лох`,
                 footer: {
