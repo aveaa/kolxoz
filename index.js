@@ -18,7 +18,7 @@ client.on("ready", () => {
     client.user.setStatus("dnd");
 
     function randomStatus() {
-        let status = [`4ch help`, `сломать твое ебало.exe`, `смотрит на твое ебало.ebat`]
+        let status = [`4ch help`, `сломать твое ебало.exe`, `смотрит на твое ебало.ebat`, `28 ударов ножом`]
         let rstatus = Math.floor(Math.random() * status.length);
         client.user.setActivity(status[rstatus]);
 
@@ -114,7 +114,7 @@ client.on("message", async message => {
 
         if (!args[1]) return message.channel.sendmessage.channel.send({
             embed: {
-                color: 16711680,
+                color: 1710618,
                 title: "Ой, ошибочка вышла!",
                 description: `Напиши два слова и повтори попытку позже, лох`,
                 footer: {
