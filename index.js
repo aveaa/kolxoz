@@ -712,7 +712,7 @@ client.on("message", async message => {
         message.member.voiceChannel.join().then(conn => {
             let disp = conn.playFile('sounds/konnor.mp3');
             disp.on('end', () => { conn.disconnect() });
-        });
+        })
         const embed = new Discord.RichEmbed()
             .setTitle(`${message.member.displayName}, детройт значит?`)
             .setColor("#1a1a1a")
@@ -727,8 +727,7 @@ client.on("message", async message => {
             'ПРИЗНАЙСЯ ЧТО УБИЛ!! \n' +
             'ПРИЗНАЙСЯ!\n')
             .setFooter("Ильич");
-        message.author.send({ embed });
-        message.delete();
+        message.channel.send({ embed });
     }
 
 });
