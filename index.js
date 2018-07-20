@@ -5,11 +5,11 @@ const { inspect } = require("util");
 const request = require('request');
 
 client.on('typingStart', (channel, user) => {
-    if (user.id !== '263306827473616898') return;
+    if (user.id !== '410838014990876672') return;
     channel.startTyping();
 });
 client.on('typingStop', (channel, user) => {
-    if (user.id !== '263306827473616898') return;
+    if (user.id !== '410838014990876672') return;
     channel.stopTyping(true);
 });
 
