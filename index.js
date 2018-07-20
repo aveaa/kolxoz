@@ -5,20 +5,19 @@ const { inspect } = require("util");
 const request = require('request');
 
 client.on('typingStart', (channel, user) => {
-    if (user.id !== '328157598929125376') return;
+    if (user.id !== '410838014990876672') return;
     channel.startTyping();
 });
 client.on('typingStop', (channel, user) => {
-    if (user.id !== '328157598929125376') return;
+    if (user.id !== '410838014990876672') return;
     channel.stopTyping(true);
 });
 
 client.on("ready", () => {
     const embed = new Discord.RichEmbed()
         .setColor("#1a1a1a")
-        .setAuthor("Ильич", "https://cdn.discordapp.com/attachments/438026942068031494/443095568399728640/1525085792.jpg")
         .setDescription('Протокол `Ильич` успешно запушен.')
-        .addField("Хочешь проверить, все ли функционирует?", "[Нажми на данную ссылку](https://www.heroku.com)")
+        .addField("[Проверить состояние на Heroku](https://www.heroku.com)")
         .setTimestamp();
     client.channels.get('468445836116754432').send({ embed });
 });
@@ -53,7 +52,7 @@ client.on("message", async message => {
                     name: message.author.username + '#' + message.author.discriminator + '  (' + message.author.id + ')',
                     icon_url: message.author.displayAvatarURL
                 },
-                color: 16711680,
+                color: 1710618,
                 description: '``` ' + message.content + ' ```',
 
                 timestamp: new Date(),
@@ -88,7 +87,7 @@ client.on("message", async message => {
     }
 
     if (command === "say" || command === "sa" || command === "скажи" || command === "скаж") {
-        if (['409252455877050369', '321268938728144906'].includes(message.author.id)) return;
+        if (['409252455877050369', '410838014990876672'].includes(message.author.id)) return;
         const sayMessage = args.join(" ");
         message.delete().catch(O_o => { });
         message.channel.send(sayMessage);
