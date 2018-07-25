@@ -664,6 +664,7 @@ client.on("message", async message => {
             '`4ch choosehelp` или `4ch выборхелп`\n' +
             '`4ch smshelp` или `4ch смсхелп`',
 
+            '**Голосовые команды** (временно недоступны)\n' +
             '`4ch ор 1` - Ты че, дурак блять?\n' +
             '`4ch ор 2` - Вы кто такие, я вас не звал, идите нахуй\n' +
             '`4ch ор 3` - Майнкрафт это моя жизнь\n' +
@@ -672,7 +673,15 @@ client.on("message", async message => {
             '`4ch ор 6` - Орущий дед опять сошёл с ума\n' +
             '`4ch ор 7` - М, я ем, пошел нахуй\n' +
             '`4ch ор 8` - Ну че народ, погнали нахуй?\n' +
-            '`4ch ор 9` - Вот это поворот\n' +, 'You can add pages', 'All you need to do is add another item in the array', '**Supports markdown and regular chat description properties**'];
+            '`4ch ор 9` - Вот это поворот\n',
+            '`4ch dank 1` - bitconneeeeeeeect\n' +
+            '`4ch dank 2` - Димон\n' +
+            '`4ch dank 3` - Skoopidy Woop\n' +
+            '`4ch dank 4` - Смех\n' +
+            '`4ch dank 5` - Ты втираешь мне какую-то дичь\n' +
+            '`4ch dank 6` - Running in the 90s\n' +
+            '`4ch dank 7` - sponge beds\n' +
+            '`4ch dank 8` - лютик блять\n', 'All you need to do is add another item in the array', '**Supports markdown and regular chat description properties**'];
         let page = 1;
 
         const embed = new Discord.RichEmbed()
