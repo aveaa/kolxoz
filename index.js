@@ -92,10 +92,6 @@ client.on("message", async message => {
         m.edit(`Хоп. Замена сообщения произошла за ${m.createdTimestamp - message.createdTimestamp}ms. Нетрудным вычислением мы можем понять, что твой пинг составляет ${Math.round(client.ping)}ms`);
     }
 
-    if (command === "отключись" || command === "выключись") {
-        client.user.setStatus("dnd");
-    }
-
     if (command === "say" || command === "sa" || command === "скажи" || command === "скаж") {
         if (['409252455877050369', '263306827473616898', '410838014990876672'].includes(message.author.id)) return;
         const sayMessage = args.join(" ");
@@ -388,6 +384,9 @@ client.on("message", async message => {
         message.guild.members.forEach(member => {
             if (member.user.bot) b = b + 1;
         });
+        /*        
+        message.guild.channels.filter(chan => chan.type === 'voice').forEach((channel) => {voice += channel.members.size});
+        */
         const embed = new Discord.RichEmbed()
         embed.setAuthor(message.author.tag, message.author.avatarURl)
         embed.setTitle('Информация об сервере', message.channel.guild.name)
@@ -398,6 +397,7 @@ client.on("message", async message => {
         embed.addField('ID владельца сервера', message.channel.guild.ownerID, false)
         embed.addField('Уровень верификации', message.channel.guild.verificationLevel, true)
         embed.addField('Количество пользователей', `${message.channel.guild.memberCount} пользователей из которых ${b} ботов и ${i} людей`, false)
+        //embed.addField('>Пользователи в голосовых каналах (всего)', voice)
         embed.addField('Количество ролей', message.channel.guild.roles.size, true)
         embed.addField('Количество эмодзи', message.channel.guild.emojis.size, false)
         embed.addField('Количество каналов', message.channel.guild.channels.size, true)
@@ -639,6 +639,46 @@ client.on("message", async message => {
             )
         message.channel.send({ embed });
         message.delete();
+    }
+
+    if (command === 'проверь') {
+        let pages = ['This is page one!', 'Second page', 'Third', 'You can add pages', 'All you need to do is add another item in the array', '**Supports markdown and regular chat description properties**'];
+        let page = 1;
+
+        const embed = new Discord.MessageEmbed()
+            .setColor(0xffffff)
+            .setFooter(`Page ${page} of ${pages.length}`)
+            .setDescription(pages[page - 1])
+
+        message.channel.send(embed).then(msg => {
+
+            msg.react('⏪').then(r => {
+                msg.react('⏩')
+
+                const backwardsFilter = (reaction, user) => reaction.emoji.name === '⏪' && user.id === message.author.id;
+                const forwardsFilter = (reaction, user) => reaction.emoji.name === '⏩' && user.id === message.author.id;
+
+                const backwards = msg.createReactionCollector(backwardsFilter, { time: 60000 });
+                const forwards = msg.createReactionCollector(forwardsFilter, { time: 60000 });
+
+
+                backwards.on('collect', r => {
+                    if (page === 1) return;
+                    page--;
+                    embed.setDescription(pages[page - 1]);
+                    embed.setFooter(`Page ${page} of ${pages.length}`);
+                    msg.edit(embed)
+                })
+
+                forwards.on('collect', r => {
+                    if (page === pages.length) return;
+                    page++;
+                    embed.setDescription(pages[page - 1]);
+                    embed.setFooter(`Page ${page} of ${pages.length}`);
+                    msg.edit(embed)
+                })
+            })
+        })
     }
 
     if (command === "голос" || command === "войс" || command === "голас" || command === "голоз" || command === "галас" || command === "глас" || command === "voice" || command === "sound" || command === "music" || command === "vhelp") {
