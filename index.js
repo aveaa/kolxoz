@@ -641,8 +641,9 @@ client.on("message", async message => {
         message.delete();
     }
 
-    if (command === 'проверь') {
+    if (command === "помощь" || command === "помошь" || command === "помощ" || command === "помош" || command === "помоги" || command === "памаги" || command === "помаги" || command === "хэлп" || command === "хелп" || command === "help") {
         let pages = ['**Текстовые команды**\n' +
+            ' \n' +
             '`4ch аватар` или `4ch avatar` - покажу, каким я в последний раз видел вашего друга (может и вас тоже)\n' +
             '`4ch лох` или `4ch lox` - найду того, кто последний раз вас отпиздил\n' +
             '`4ch илюха` или `4ch iluxa` - позвоним Илюхе\n' +
@@ -656,6 +657,7 @@ client.on("message", async message => {
             '`4ch вопрос` или `4ch ask` - задай мне вопрос ~~(это не пиар аск.фм)~~\n',
 
             '**Команды помощи**\n' +
+            ' \n' +
             '`4ch avhelp` или `4ch авхелп`\n' +
             '`4ch sayhelp` или `4ch скажихелп`\n' +
             '`4ch loxhelp` или `4ch лоххелп`\n' +
@@ -665,6 +667,7 @@ client.on("message", async message => {
             '`4ch smshelp` или `4ch смсхелп`',
 
             '**Голосовые команды** (временно недоступны)\n' +
+            ' \n' +
             '`4ch ор 1` - Ты че, дурак блять?\n' +
             '`4ch ор 2` - Вы кто такие, я вас не звал, идите нахуй\n' +
             '`4ch ор 3` - Майнкрафт это моя жизнь\n' +
@@ -681,12 +684,12 @@ client.on("message", async message => {
             '`4ch dank 5` - Ты втираешь мне какую-то дичь\n' +
             '`4ch dank 6` - Running in the 90s\n' +
             '`4ch dank 7` - sponge beds\n' +
-            '`4ch dank 8` - лютик блять\n', 'All you need to do is add another item in the array', '**Supports markdown and regular chat description properties**'];
+            '`4ch dank 8` - лютик блять\n'];
         let page = 1;
 
         const embed = new Discord.RichEmbed()
             .setColor("#1a1a1a")
-            .setFooter(`Page ${page} of ${pages.length}`)
+            .setFooter(`Страница ${page} из ${pages.length}`)
             .setDescription(pages[page - 1])
 
         message.channel.send(embed).then(msg => {
@@ -706,6 +709,7 @@ client.on("message", async message => {
                     page--;
                     embed.setDescription(pages[page - 1]);
                     embed.setFooter(`Page ${page} of ${pages.length}`);
+                    reaction.remove(user);
                     msg.edit(embed)
                 })
 
@@ -713,44 +717,12 @@ client.on("message", async message => {
                     if (page === pages.length) return;
                     page++;
                     embed.setDescription(pages[page - 1]);
-                    embed.setFooter(`Page ${page} of ${pages.length}`);
+                    embed.setFooter(`Страница ${page} из ${pages.length}`);
+                    reaction.remove(user);
                     msg.edit(embed)
                 })
             })
         })
-    }
-
-    if (command === "голос" || command === "войс" || command === "голас" || command === "голоз" || command === "галас" || command === "глас" || command === "voice" || command === "sound" || command === "music" || command === "vhelp") {
-
-        const embed = new Discord.RichEmbed()
-            .setTitle(`Ммм, голосовухи значит, ${message.member.displayName}`)
-            .setFooter("Ильич")
-            .setColor("#1a1a1a")
-            .setDescription(
-            'Основной префикс бота **4ch **\n' +
-            ' \n' +
-            '`4ch ор 1` - Ты че, дурак блять?\n' +
-            '`4ch ор 2` - Вы кто такие, я вас не звал, идите нахуй\n' +
-            '`4ch ор 3` - Майнкрафт это моя жизнь\n' +
-            '`4ch ор 4` - Лежать + сосать\n' +
-            '`4ch ор 5` - Это. Просто. Охуенно.\n' +
-            '`4ch ор 6` - Орущий дед опять сошёл с ума\n' +
-            '`4ch ор 7` - М, я ем, пошел нахуй\n' +
-            '`4ch ор 8` - Ну че народ, погнали нахуй?\n' +
-            '`4ch ор 9` - Вот это поворот\n' +
-            ' \n' +
-            'Аналог данной команды - `4ch dank`:\n' +
-            '`4ch dank 1` - bitconneeeeeeeect\n' +
-            '`4ch dank 2` - Димон\n' +
-            '`4ch dank 3` - Skoopidy Woop\n' +
-            '`4ch dank 4` - Смех\n' +
-            '`4ch dank 5` - Ты втираешь мне какую-то дичь\n' +
-            '`4ch dank 6` - Running in the 90s\n' +
-            '`4ch dank 7` - sponge beds\n' +
-            '`4ch dank 8` - лютик блять\n'
-            )
-        message.channel.send({ embed });
-        message.delete();
     }
 
     if ((command === 'em')  && ['327872942124040192', '421030089732653057', '361951318929309707', '222746438814138368'].includes(message.author.id)) {
