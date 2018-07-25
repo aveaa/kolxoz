@@ -642,7 +642,15 @@ client.on("message", async message => {
     }
 
     if (command === 'проверь') {
-        let pages = ['This is page one!', 'Second page', 'Third', 'You can add pages', 'All you need to do is add another item in the array', '**Supports markdown and regular chat description properties**'];
+        let pages = ['`4ch ор 1` - Ты че, дурак блять?\n' +
+            '`4ch ор 2` - Вы кто такие, я вас не звал, идите нахуй\n' +
+            '`4ch ор 3` - Майнкрафт это моя жизнь\n' +
+            '`4ch ор 4` - Лежать + сосать\n' +
+            '`4ch ор 5` - Это. Просто. Охуенно.\n' +
+            '`4ch ор 6` - Орущий дед опять сошёл с ума\n' +
+            '`4ch ор 7` - М, я ем, пошел нахуй\n' +
+            '`4ch ор 8` - Ну че народ, погнали нахуй?\n' +
+            '`4ch ор 9` - Вот это поворот\n', 'Second page', 'Third', 'You can add pages', 'All you need to do is add another item in the array', '**Supports markdown and regular chat description properties**'];
         let page = 1;
 
         const embed = new Discord.RichEmbed()
