@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const prefix = "4ch ";
+const prefix = "<@440525096487223331>";
 const { inspect } = require("util");
 const request = require('request');
 
@@ -74,7 +74,7 @@ client.on("message", async message => {
     }
 
     if (message.author.bot) return;
-    let prefixes = ['Ильич ', 'Илья ', 'Ильич', 'Илья', 'Ильич, ', 'Илья, '];
+    let prefixes = ['Ильич ', 'Илья ', 'Ильич', 'Илья', 'Ильич, ', 'Илья, ', '4ch ', 'ильич', 'ильич ', 'ильич, ', 'илья', 'илья ', 'илья, '];
     let prefix = false;
     prefixes.forEach(prefix_ => {
         if (message.content.startsWith(prefix_)) {
@@ -642,7 +642,29 @@ client.on("message", async message => {
     }
 
     if (command === 'проверь') {
-        let pages = ['`4ch ор 1` - Ты че, дурак блять?\n' +
+        let pages = ['**Текстовые команды**\n' +
+            '`4ch аватар` или `4ch avatar` - покажу, каким я в последний раз видел вашего друга (может и вас тоже)\n' +
+            '`4ch лох` или `4ch lox` - найду того, кто последний раз вас отпиздил\n' +
+            '`4ch илюха` или `4ch iluxa` - позвоним Илюхе\n' +
+            '`4ch sms` или `4ch смс` - отправлю смс выбранному чуваку\n' +
+            '`4ch afk` - оповещаю о том, что вы отошли\n' +
+            '`4ch разработчик` или `4ch creator` - подскажу, кто из этой толпы мой создатель\n' +
+            '`4ch бой` или `4ch fight` - потренеруюсь с тобой в силе\n' +
+            '`4ch скажи` или `4ch say` - горланю анекдоты про лупу и пупу за вас\n' +
+            '`4ch мемы` или `4ch meme` - кидаю мемчики\n' +
+            '`4ch выбор` или `4ch choose` - выбираю из двух зол худшее\n' +
+            '`4ch вопрос` или `4ch ask` - задай мне вопрос ~~(это не пиар аск.фм)~~\n',
+
+            '**Команды помощи**\n' +
+            '`4ch avhelp` или `4ch авхелп`\n' +
+            '`4ch sayhelp` или `4ch скажихелп`\n' +
+            '`4ch loxhelp` или `4ch лоххелп`\n' +
+            '`4ch iluxahelp` или `4ch илюхахелп`\n' +
+            '`4ch askhelp` или `4ch вопросхелп`\n' +
+            '`4ch choosehelp` или `4ch выборхелп`\n' +
+            '`4ch smshelp` или `4ch смсхелп`',
+
+            '`4ch ор 1` - Ты че, дурак блять?\n' +
             '`4ch ор 2` - Вы кто такие, я вас не звал, идите нахуй\n' +
             '`4ch ор 3` - Майнкрафт это моя жизнь\n' +
             '`4ch ор 4` - Лежать + сосать\n' +
@@ -650,11 +672,11 @@ client.on("message", async message => {
             '`4ch ор 6` - Орущий дед опять сошёл с ума\n' +
             '`4ch ор 7` - М, я ем, пошел нахуй\n' +
             '`4ch ор 8` - Ну че народ, погнали нахуй?\n' +
-            '`4ch ор 9` - Вот это поворот\n', 'Second page', 'Third', 'You can add pages', 'All you need to do is add another item in the array', '**Supports markdown and regular chat description properties**'];
+            '`4ch ор 9` - Вот это поворот\n' +, 'You can add pages', 'All you need to do is add another item in the array', '**Supports markdown and regular chat description properties**'];
         let page = 1;
 
         const embed = new Discord.RichEmbed()
-            .setColor(0xffffff)
+            .setColor("#1a1a1a")
             .setFooter(`Page ${page} of ${pages.length}`)
             .setDescription(pages[page - 1])
 
