@@ -92,6 +92,10 @@ client.on("message", async message => {
         m.edit(`Хоп. Замена сообщения произошла за ${m.createdTimestamp - message.createdTimestamp}ms. Нетрудным вычислением мы можем понять, что твой пинг составляет ${Math.round(client.ping)}ms`);
     }
 
+    if (command === "отключись" || command === "выключись") {
+        client.user.setStatus("dnd");
+    }
+
     if (command === "say" || command === "sa" || command === "скажи" || command === "скаж") {
         if (['409252455877050369', '263306827473616898', '410838014990876672'].includes(message.author.id)) return;
         const sayMessage = args.join(" ");
@@ -384,9 +388,6 @@ client.on("message", async message => {
         message.guild.members.forEach(member => {
             if (member.user.bot) b = b + 1;
         });
-        /*        
-        message.guild.channels.filter(chan => chan.type === 'voice').forEach((channel) => {voice += channel.members.size});
-        */
         const embed = new Discord.RichEmbed()
         embed.setAuthor(message.author.tag, message.author.avatarURl)
         embed.setTitle('Информация об сервере', message.channel.guild.name)
@@ -397,7 +398,6 @@ client.on("message", async message => {
         embed.addField('ID владельца сервера', message.channel.guild.ownerID, false)
         embed.addField('Уровень верификации', message.channel.guild.verificationLevel, true)
         embed.addField('Количество пользователей', `${message.channel.guild.memberCount} пользователей из которых ${b} ботов и ${i} людей`, false)
-        //embed.addField('>Пользователи в голосовых каналах (всего)', voice)
         embed.addField('Количество ролей', message.channel.guild.roles.size, true)
         embed.addField('Количество эмодзи', message.channel.guild.emojis.size, false)
         embed.addField('Количество каналов', message.channel.guild.channels.size, true)
