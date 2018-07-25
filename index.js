@@ -604,43 +604,6 @@ client.on("message", async message => {
         message.delete();
     }
 
-
-
-    if (command === "помощь" || command === "помошь" || command === "помощ" || command === "помош" || command === "помоги" || command === "памаги" || command === "помаги" || command === "хэлп" || command === "хелп" || command === "help") {
-
-        const embed = new Discord.RichEmbed()
-            .setTitle(`А вот и помощь подъехала, ${message.member.displayName}`)
-            .setFooter("Ильич")
-            .setColor("#1a1a1a")
-            .setDescription(
-            'Основной префикс бота **4ch **\n' +
-            ' \n' +
-            '`4ch аватар` или `4ch avatar` - покажу, каким я в последний раз видел вашего друга (может и вас тоже)\n' +
-            '`4ch лох` или `4ch lox` - найду того, кто последний раз вас отпиздил\n' +
-            '`4ch илюха` или `4ch iluxa` - позвоним Илюхе\n' +
-            '`4ch sms` или `4ch смс` - отправлю смс выбранному чуваку\n' +
-            '`4ch off` - оповещаю о том, что вы отошли\n' +
-            '`4ch on` - оповещаю о том, что вы подошли\n' +
-            '`4ch разработчик` или `4ch creator` - подскажу, кто из этой толпы мой создатель\n' +
-            '`4ch бой` или `4ch fight` - потренеруюсь с тобой в силе\n' +
-            '`4ch скажи` или `4ch say` - горланю анекдоты про лупу и пупу за вас\n' +
-            '`4ch мемы` или `4ch meme` - кидаю мемчики\n' +
-            '`4ch выбор` или `4ch choose` - выбираю из двух зол худшее\n' +
-            '`4ch вопрос` или `4ch ask` - задай мне вопрос ~~(это не пиар аск.фм)~~\n' +
-            ' \n' +
-            'Если вы не поняли, как действует команда, советую обратиться к таким командам как:\n' +
-            '`4ch avhelp` или `4ch авхелп`\n' +
-            '`4ch sayhelp` или `4ch скажихелп`\n' +
-            '`4ch loxhelp` или `4ch лоххелп`\n' +
-            '`4ch iluxahelp` или `4ch илюхахелп`\n' +
-            '`4ch askhelp` или `4ch вопросхелп`\n' +
-            '`4ch choosehelp` или `4ch выборхелп`\n' +
-            '`4ch smshelp` или `4ch смсхелп`'
-            )
-        message.channel.send({ embed });
-        message.delete();
-    }
-
     if (command === "помощь" || command === "помошь" || command === "помощ" || command === "помош" || command === "помоги" || command === "памаги" || command === "помаги" || command === "хэлп" || command === "хелп" || command === "help") {
         let pages = ['**Текстовые команды**\n' +
             ' \n' +
