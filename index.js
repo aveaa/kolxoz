@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const config = require("./config.json");
+const prefix = "4ch ";
 const { inspect } = require("util");
 const request = require('request');
 
@@ -16,7 +16,6 @@ client.on('typingStop', (channel, user) => {
 client.on("ready", () => {
     const embed = new Discord.RichEmbed()
         .setColor("#1a1a1a")
-        .setAuthor("Ильич", "https://cdn.discordapp.com/attachments/438026942068031494/443095568399728640/1525085792.jpg")
         .setDescription('Протокол `Ильич` успешно запушен.')
         .addField("Хочешь проверить, все ли функционирует?", "[Нажми на данную ссылку](https://www.heroku.com)")
         .setTimestamp();
@@ -75,8 +74,14 @@ client.on("message", async message => {
     }
 
     if (message.author.bot) return;
-
-    if (message.content.indexOf(config.prefix) !== 0) return;
+    let prefixes = ['Ильич ', 'Илья ', 'Ильич', 'Илья', 'Ильич, ', 'Илья, '];
+    let prefix = false;
+    prefixes.forEach(prefix_ => {
+        if (message.content.startsWith(prefix_)) {
+            prefix = prefix_;
+        }
+    })
+    if (prefix === false) return;
 
     const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
