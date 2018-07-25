@@ -391,6 +391,34 @@ client.on("message", async message => {
         })
     }
 
+    if (command === "Внимание") {
+        let member = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0])
+        if (!message.member.hasPermission("ADMINISTRATOR"))
+            return message.reply({
+                embed: {
+                    color: 1710618,
+                    description: "No permission."
+                }
+            });
+        let DMALL = args.join(" ").slice(0);
+        if (!DMALL) return message.channel.send({
+            embed: {
+                color: 1710618,
+                description: `${message.member} Please enter a message to dm all the players in the discord server.`
+            }
+        });
+
+        message.guild.members.forEach((player) => {
+            message.guild.member(player).send({
+                embed: {
+                    color: 1710618,
+                    title: `${message.guild.name}`,
+                    description: `${Alert}`
+                }
+            });
+        });
+    }
+
     if (command === "si" || command === "serverinfo" || command === "си" || command === "сервер") {
 
         if (message.channel.guild.large == true) {
