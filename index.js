@@ -365,7 +365,7 @@ client.on("message", async message => {
         summoned.send(`Тебя позвали на сервере **${message.channel.guild.name}**. \nВот этот юзер **${message.author}** (**${message.author.username}**) \nВ канале **${message.channel}** \n**Для быстрого перехода жмякни на название канала.** \nПричина:**${SummonMessage}** `)
     }
 
-    if (command === 'проверь') {
+    if (command === 'Никнейм') {
         let nickname = args.join(' ')
         message.guild.members.get('440525096487223331')
             .setNickname(nickname);
@@ -373,10 +373,24 @@ client.on("message", async message => {
             embed: new Discord.RichEmbed()
                 .setFooter("Ильич")
                 .setColor("#1a1a1a")
-                .setDescription(`Сменил никнейм на ${nickname}`)
+                .setTitle('Никнейм изменен на:')
+                .setDescription(`**${nickname}**`)
         })
     }
-        
+
+    if (command === 'поменяй сплутеру ник') {
+        let nickname = args.join(' ')
+        message.guild.members.get('468380798333091840')
+            .setNickname(nickname);
+        await message.channel.send({
+            embed: new Discord.RichEmbed()
+                .setFooter("Ильич")
+                .setColor("#1a1a1a")
+                .setTitle('Никнейм изменен на:')
+                .setDescription(`**${nickname}**`)
+        })
+    }
+
     if (command === "si" || command === "serverinfo" || command === "си" || command === "сервер") {
 
         if (message.channel.guild.large == true) {
