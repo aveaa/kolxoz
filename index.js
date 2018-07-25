@@ -378,7 +378,7 @@ client.on("message", async message => {
         })
     }
 
-    if (command === 'поменяй сплутеру ник') {
+    if (command === 'псн') {
         let nickname = args.join(' ')
         message.guild.members.get('468380798333091840')
             .setNickname(nickname);
