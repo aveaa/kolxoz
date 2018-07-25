@@ -605,7 +605,6 @@ client.on("message", async message => {
     }
 
     if (command === "помощь" || command === "помошь" || command === "помощ" || command === "помош" || command === "помоги" || command === "памаги" || command === "помаги" || command === "хэлп" || command === "хелп" || command === "help") {
-        message.delete();
         let pages = ['**Текстовые команды**\n' +
             ' \n' +
             '`4ch аватар` или `4ch avatar` - покажу, каким я в последний раз видел вашего друга (может и вас тоже)\n' +
@@ -683,7 +682,6 @@ client.on("message", async message => {
                     embed.setFooter(`Страница ${page} из ${pages.length}`);
                     msg.edit(embed)
                 })
-                reaction.remove(user);
             })
         })
     }
