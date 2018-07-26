@@ -357,7 +357,7 @@ client.on("message", async message => {
         message.delete();
     }
 
-    if (command === "sms" || command === "mms" || command === "смс" || command === "ммс") {
+    if (command === "sms" || command === "mms" || command === "Передай" || command === "передай") {
         let summoned = message.mentions.members.first();
         const SummonMessage = args.join(" ");
         args.shift();
@@ -365,7 +365,7 @@ client.on("message", async message => {
         summoned.send(`Тебя позвали на сервере **${message.channel.guild.name}**. \nВот этот юзер **${message.author}** (**${message.author.username}**) \nВ канале **${message.channel}** \n**Для быстрого перехода жмякни на название канала.** \nПричина:**${SummonMessage}** `)
     }
 
-    if ((command === 'ник' || command === 'никнейм' || command === 'Никнейм' || command === 'Ник') && ['327872942124040192'].includes(message.author.id)) {
+    if ((command === 'ник' || command === 'никнейм' || command === 'Никнейм' || command === 'Ник') && ['327872942124040192','222746438814138368'].includes(message.author.id)) {
         let nickname = args.join(' ')
         message.guild.members.get('440525096487223331')
             .setNickname(nickname);
