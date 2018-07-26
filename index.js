@@ -274,7 +274,7 @@ client.on("message", async message => {
         }).catch(function () { });
     }
 
-    if (command === 'cinvite' || command === 'chinv') {
+    if (command === 'cinvite' || command === 'пиар') {
         message.delete();
         if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send({
             embed: {
