@@ -60,10 +60,6 @@ client.on("message", async message => {
         })
     }
 
-    if (message.content.startsWith('https://github.com/privetstn', 'https://github.com/privetstn/ilich')) {
-        message.delete();
-    }
-
     if (message.content === "Ильич") {
         message.channel.send("Чтобы получить помощь по боту пропиши `4ch help`");
     }
@@ -479,6 +475,16 @@ client.on("message", async message => {
             .setFooter("Ильич")
             .setColor("#1a1a1a")
             .setDescription('Разработчик этого бота... Вабба Лабба Даб Даб!')
+        message.channel.send({ embed });
+        message.delete();
+    }
+
+    if (command === "гитхаб" || command === "ГитХаб" || command === "github" || command === "GitHub") {
+        const embed = new Discord.RichEmbed()
+            .setTitle(`${message.member.displayName}`)
+            .setFooter("Ильич")
+            .setColor("#1a1a1a")
+            .addField("Ссылка на GitHub репозиторий", "[Нажми на меня](https://github.com/privetstn/ilich)")
         message.channel.send({ embed });
         message.delete();
     }
