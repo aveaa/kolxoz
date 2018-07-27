@@ -481,7 +481,6 @@ client.on("message", async message => {
 
     if (command === "гитхаб" || command === "ГитХаб" || command === "github" || command === "GitHub") {
         const embed = new Discord.RichEmbed()
-            .setTitle(`${message.member.displayName}`)
             .setFooter("Ильич")
             .setColor("#1a1a1a")
             .addField("Ссылка на GitHub репозиторий", "[Нажми на меня](https://github.com/privetstn/ilich)")
