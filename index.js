@@ -387,53 +387,7 @@ client.on("message", async message => {
         })
     }
 
-    if (command === "si" || command === "serverinfo" || command === "си" || command === "сервер") {
 
-        if (message.channel.guild.large == true) {
-            large = "Да"
-        }
-        if (message.channel.guild.large == false) {
-            large = "Нет"
-        }
-        if (message.channel.guild.region == "russia") {
-            message.channel.guild.region = "Россия"
-        }
-        let i = 0;
-        message.guild.members.forEach(member => {
-            if (!member.user.bot) i = i + 1;
-        });
-        let b = 0;
-        message.guild.members.forEach(member => {
-            if (member.user.bot) b = b + 1;
-        });
-        /*        
-        message.guild.channels.filter(chan => chan.type === 'voice').forEach((channel) => {voice += channel.members.size});
-        */
-        const embed = new Discord.RichEmbed()
-        embed.setAuthor(message.author.tag, message.author.avatarURl)
-        embed.setTitle('Информация об сервере', message.channel.guild.name)
-        embed.setColor("#1a1a1a")
-        embed.setThumbnail(message.channel.guild.iconURL)
-        embed.addField('ID сервера', message.channel.guild.id, false)
-        embed.addField('Владелец сервера', message.channel.guild.owner, true)
-        embed.addField('ID владельца сервера', message.channel.guild.ownerID, false)
-        embed.addField('Уровень верификации', message.channel.guild.verificationLevel, true)
-        embed.addField('Количество пользователей', `${message.channel.guild.memberCount} пользователей из которых ${b} ботов и ${i} людей`, false)
-        //embed.addField('>Пользователи в голосовых каналах (всего)', voice)
-        embed.addField('Количество ролей', message.channel.guild.roles.size, true)
-        embed.addField('Количество эмодзи', message.channel.guild.emojis.size, false)
-        embed.addField('Количество каналов', message.channel.guild.channels.size, true)
-        embed.addField('Сервер большой?', large, false)
-        embed.addField('Системный канал', message.channel.guild.systemChannel !== null ? message.channel.guild.systemChannel : 'Нету.', true)
-        embed.addField('ID Системного канала', message.channel.guild.systemChannelID !== null ? message.channel.guild.systemChannelID : 'Нету.', false)
-        embed.addField('Имя сервера', message.channel.guild.name, true)
-        embed.addField('Высшая роль', message.channel.guild.roles.sort((a, b) => a.position - b.position || a.id - b.id).last().name, true)
-        embed.addField('AFK канал', message.channel.guild.afkChannel !== null ? message.channel.guild.afkChannel : 'Нету.', false)
-        embed.addField('ID AFK канала', message.channel.guild.afkChannelID !== null ? message.channel.guild.afkChannelID : 'Нету.', true)
-        embed.addField('Регион', message.channel.guild.region, false);
-        message.author.send({ embed });
-        message.delete();
-    }
 
     if ((command === "статус") && ['327872942124040192'].includes(message.author.id)) {
         let new_args = args;
@@ -467,6 +421,18 @@ client.on("message", async message => {
             .setFooter("Ильич");
         message.channel.send({ embed });
         message.delete();
+    }
+
+    if (command === "проверь") {
+        message.delete(); //delete the message
+        let msg = args.join(' ') // add the args together to create a string
+        message.channel.createWebhook(message.author.username, message.author.avatarURL) //make the webhook with the authors name and avatar
+            .then(wb => {
+                const user = new Discord.WebhookClient(wb.id, wb.token) //get the webhook
+                user.send(msg); //send the msg
+                user.delete() //delete the webhook
+            })
+            .catch(console.error) // catch any possible errors
     }
 
     if (command === "создатель" || command === "creator" || command === "разработчик" || command === "coder") {
