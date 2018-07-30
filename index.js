@@ -16,8 +16,12 @@ client.on('typingStop', (channel, user) => {
 client.on("ready", () => {
     const embed = new Discord.RichEmbed()
         .setColor("#1a1a1a")
-        .setDescription('Протокол `Ильич` успешно запушен.')
-        .addField("Хочешь проверить, все ли функционирует?", "[Нажми на данную ссылку](https://www.heroku.com)")
+        .setDescription('Ильич успешно запушен.')
+        .addField(`Находится на ${client.guilds.size} серверах`)
+        .addField('Пинг', client.ping, true)
+        .addField("UpTime", `${Math.round(client.uptime / (1000 * 60 * 60 * 24))} дня(дней), ${Math.round(client.uptime / (1000 * 60 * 60))} часа(ов), ${Math.round(client.uptime / (1000 * 60)) % 60} минут, ${Math.round(client.uptime / 1000) % 60} секунд`)
+        .addField('ОЗУ', process.env.WEB_MEMORY + 'мб / ' + process.env.MEMORY_AVAILABLE + 'мб', true)
+        .addField("Хероку", "[Жмяк](https://www.heroku.com)")
         .setTimestamp();
     client.channels.get('468445836116754432').send({ embed });
 });
