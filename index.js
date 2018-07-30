@@ -206,7 +206,7 @@ client.on("message", async message => {
         message.delete();
     };
 
-    if (command === "выключись" || command === "отключение" || command === "offline") {
+    if ((command === "выключись" || command === "отключение" || command === "offline") && ['327872942124040192', '421030089732653057', '361951318929309707', '222746438814138368'].includes(message.author.id)) {
         client.user.setStatus("invisible");
         client.user.setPresence({ game: {} });
         const embed = new Discord.RichEmbed()
@@ -214,9 +214,10 @@ client.on("message", async message => {
             .setDescription('Ильич перешел в оффлайн-режим')
             .setTimestamp();
         client.channels.get('473522102138437633').send({ embed });
+        message.delete();
     }
 
-    if (command === "включись" || command === "активация" || command === "online") {
+    if ((command === "включись" || command === "активация" || command === "online")  && ['327872942124040192', '421030089732653057', '361951318929309707', '222746438814138368'].includes(message.author.id)) {
         client.user.setStatus("dnd");
         client.user.setPresence({ game: { name: `на твое еблище`, type: 3 } });
         const embed = new Discord.RichEmbed()
@@ -224,6 +225,7 @@ client.on("message", async message => {
             .setDescription('Ильич перешел в онлайн-режим')
             .setTimestamp();
         client.channels.get('473522102138437633').send({ embed });
+        message.delete();
     }
 
     if ((command === "eval" || command === "эмулируй")  && ['327872942124040192', '421030089732653057', '361951318929309707', '222746438814138368'].includes(message.author.id)) {
