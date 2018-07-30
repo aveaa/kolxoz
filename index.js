@@ -206,14 +206,12 @@ client.on("message", async message => {
         message.delete();
     };
 
-    if (command === "ильич" || command === "ленин" || command === "ilich" || command === "lenin") {
-        let unionMessage = await message.channel.send('Загрузка...');
-        unionMessage.edit(`Гост сосатб`);
-        unionMessage.edit(`Проверка успешно завершена`);
-        message.channel.send(unionMessage);
+    if (command === "выключись" || command === "отключение" || command === "offline") {
+        client.user.setStatus("invisible");
+        client.user.setPresence({ game: {} });
     }
 
-    if ((command === "eval")  && ['327872942124040192', '421030089732653057', '361951318929309707', '222746438814138368'].includes(message.author.id)) {
+    if ((command === "eval" || command === "эмулируй")  && ['327872942124040192', '421030089732653057', '361951318929309707', '222746438814138368'].includes(message.author.id)) {
         const code = args.join(" ");
         const token = client.token.split("").join("[^]{0,2}");
         const rev = client.token.split("").reverse().join("[^]{0,2}");
