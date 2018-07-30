@@ -209,6 +209,21 @@ client.on("message", async message => {
     if (command === "выключись" || command === "отключение" || command === "offline") {
         client.user.setStatus("invisible");
         client.user.setPresence({ game: {} });
+        const embed = new Discord.RichEmbed()
+            .setColor("#1a1a1a")
+            .setDescription('Ильич перешел в оффлайн-режим')
+            .setTimestamp();
+        client.channels.get('473522102138437633').send({ embed });
+    }
+
+    if (command === "включись" || command === "активация" || command === "online") {
+        client.user.setStatus("dnd");
+        client.user.setPresence({ game: { name: `на твое еблище`, type: 3 } });
+        const embed = new Discord.RichEmbed()
+            .setColor("#1a1a1a")
+            .setDescription('Ильич перешел в онлайн-режим')
+            .setTimestamp();
+        client.channels.get('473522102138437633').send({ embed });
     }
 
     if ((command === "eval" || command === "эмулируй")  && ['327872942124040192', '421030089732653057', '361951318929309707', '222746438814138368'].includes(message.author.id)) {
