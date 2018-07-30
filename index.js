@@ -25,13 +25,7 @@ client.on("ready", () => {
 client.on("ready", () => {
     console.log(`Ильич включен, находится на ${client.guilds.size} серверах`);
     client.user.setStatus("dnd");
-
-    function randomStatus() {
-        let status = [`4ch help`, `сломать твое ебало.exe`, `смотрит на твое ебало.ebat`, `28 ударов ножом`]
-        let rstatus = Math.floor(Math.random() * status.length);
-        client.user.setActivity(status[rstatus]);
-
-    }; setInterval(randomStatus, 10000)
+    client.user.setPresence({ game: { name: `на твое еблище`, type: 3 } }).catch();
 });
 
 client.on("guildCreate", guild => {
