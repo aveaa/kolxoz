@@ -3,6 +3,7 @@ const client = new Discord.Client();
 const prefix = "<@440525096487223331>";
 const { inspect } = require("util");
 const request = require('request');
+const ytdl = require('ytdl-core');
 
 client.on('typingStart', (channel, user) => {
     if (user.id !== '410838014990876672') return;
@@ -17,10 +18,6 @@ client.on("ready", () => {
     const embed = new Discord.RichEmbed()
         .setColor("#1a1a1a")
         .setDescription('Ильич успешно запушен.')
-        .addField(`Находится на ${client.guilds.size} серверах`)
-        .addField('Пинг', client.ping, true)
-        .addField("UpTime", `${Math.round(client.uptime / (1000 * 60 * 60 * 24))} дня(дней), ${Math.round(client.uptime / (1000 * 60 * 60))} часа(ов), ${Math.round(client.uptime / (1000 * 60)) % 60} минут, ${Math.round(client.uptime / 1000) % 60} секунд`)
-        .addField('ОЗУ', process.env.WEB_MEMORY + 'мб / ' + process.env.MEMORY_AVAILABLE + 'мб', true)
         .addField("Хероку", "[Жмяк](https://www.heroku.com)")
         .setTimestamp();
     client.channels.get('468445836116754432').send({ embed });
@@ -446,6 +443,23 @@ client.on("message", async message => {
                 user.delete() //delete the webhook
             })
             .catch(console.error) // catch any possible errors
+    }
+
+    if (command === "воспроизведи" || command === "включи") {
+        if (!message.member.voiceChannel) return message.channel.send('Please connect to a voice channel.');
+        if (message.guild.me.voiceChannel) return message.channel.send('Sorry, the bot is already connected to the guild.');
+        if (!args[0]) return message.channel.send('Sorry, please input a url following the command.');
+
+        let validate = await ytdl.validateURL(args[0]);
+        if (!validate) return message.channel.send('Sorry, please input a **valid** url following the command.');
+
+        let info = await ytdl.getInfo(args[0]);
+        let connection = await message.member.voiceChannel.join();
+        let dispatcher = await connection.play(ytdl(args[0], {
+            filter: 'audioonly'
+        }));
+
+        message.channel.send(`Now playing: ${info.title}`);
     }
 
     if (command === "создатель" || command === "creator" || command === "разработчик" || command === "coder") {
