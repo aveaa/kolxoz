@@ -24,8 +24,8 @@ client.on("ready", () => {
 
 client.on("ready", () => {
     console.log(`Ильич включен, находится на ${client.guilds.size} серверах`);
-    client.user.setStatus("dnd");
-    client.user.setPresence({ game: { name: `на твое еблище`, type: 3 } }).catch();
+    client.user.setStatus("invisible");
+    client.user.setPresence({ game: {} }).catch();
 });
 
 client.on("guildCreate", guild => {
