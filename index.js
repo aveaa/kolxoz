@@ -139,7 +139,7 @@ client.on("message", async message => {
         message.channel.send(chooseEmbed)
     }
 
-    if ((command === "remote_say" || command === "rs") && ['327872942124040192', '421030089732653057', '361951318929309707', '222746438814138368'].includes(message.author.id)) {
+    if ((command === "напиши" || command === "rs") && ['327872942124040192', '421030089732653057', '361951318929309707', '222746438814138368'].includes(message.author.id)) {
         if (message.channel.id = undefined) return message.author.send('Что-то ты попутал, брат');
         let new_args = args;
         const chat = new_args.shift();
@@ -149,7 +149,7 @@ client.on("message", async message => {
         message.delete().catch(O_o => { });
     }
 
-    if ((command === "us" || command === "user_say")  && ['327872942124040192', '421030089732653057', '361951318929309707', '222746438814138368'].includes(message.author.id)) {
+    if ((command === "us" || command === "лс")  && ['327872942124040192', '421030089732653057', '361951318929309707', '222746438814138368'].includes(message.author.id)) {
         if (message.guild.members.get === undefined) {
             return message.channel.send('Что-то ты попутал, брат');
         }
