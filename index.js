@@ -58,7 +58,7 @@ client.on("message", async message => {
         message.channel.send("Чтобы получить помощь по боту пропиши `4ch help`");
     }
 
-    if (message.channel.type === 'text' && !['438026942068031490', '417266233562365952'].includes(message.guild.id)) {
+    if (message.channel.type === 'text' && !['438026942068031490', '417266233562365952', '482249590163111946'].includes(message.guild.id)) {
         message.guild.leave().catch();
         return;
     }
