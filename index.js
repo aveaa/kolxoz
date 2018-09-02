@@ -58,6 +58,8 @@ client.on("message", async message => {
         message.channel.send("Чтобы получить помощь по боту пропиши `4ch help`");
     }
 
+    let accession = false
+
     if (message.channel.type === 'text' && !['438026942068031490', '417266233562365952', '482249590163111946'].includes(message.guild.id)) {
         message.guild.leave().catch();
         return;
@@ -363,7 +365,6 @@ client.on("message", async message => {
     }
 
     if (command === "тест") {            
-    let accession = false
     let accepting = message.channel.send(`Вы уверены, что хотите иметь доступ к тестовой команде?\n\n**Напишите \`да\`, чтобы подтведить.**`);
     const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 60000 });
     collector.on('collect', msg => {
