@@ -361,7 +361,8 @@ client.on("message", async message => {
         message.channel.send({ embed });
         message.delete();
     }
-    if (command === "тест"){            
+
+    if (command === "тест") {            
     let accession = false
     let accepting = message.channel.send(`Вы уверены, что хотите иметь доступ к тестовой команде?\n\n**Напишите \`да\`, чтобы подтведить.**`);
     const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 60000 });
@@ -402,18 +403,7 @@ client.on("message", async message => {
     }
 
     if (accession == true && command == 'beta01') {            
-    const snekfetch = require('snekfetch');
-	if (!args.slice(0)
-	.join(' ')) return message.channel.send('Please, provide the text! Usage: hastebin <text>')
-	.then(msg => msg.delete({
-	timeout: 10000
-	}));
-	snekfetch.post('https://hastebin.com/documents')
-	.send(args.slice(0)
-	.join(' '))
-	.then(body => {
-	message.channel.send('Posted text to Hastebin\nURL: https://hastebin.com/' + body.body.key);
-	});
+    message.channel.send('Проверка');
     }
 
     if (command === "sms" || command === "mms" || command === "Передай" || command === "передай") {
