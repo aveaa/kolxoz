@@ -295,8 +295,8 @@ client.on("message", async message => {
         return message.channel.send(members.map(member => `\`${member.id}\` ${member.displayName}`).join("\n") || "Мазохистов, которые ставят в статус игры ссылку на сервер не найдено.");
     }
 
-    if (command === "аватарка" || command === "avatar" || command === "av" || command === "ав") {
-        let member = message.mentions.members.first();
+    if (command === "аватарка" || command === "аватар" || command === "аватарище" || command === "аватар") {
+        let member = message.mentions.members.first() || message.author.id;
         if (!member)
             return message.channel.send({
                 embed: {
@@ -360,6 +360,60 @@ client.on("message", async message => {
             .setDescription('Брей пизду и ноги, Илюха уже в дороге')
         message.channel.send({ embed });
         message.delete();
+    }
+    if (command === "тест"){            
+    let accession = false
+    let accepting = message.channel.send(`Вы уверены, что хотите иметь доступ к тестовой команде?\n\n**Напишите \`да\`, чтобы подтведить.**`);
+    const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 60000 });
+    collector.on('collect', msg => {
+        if (['да', 'ага', 'кнш'].includes(msg.content.toLowerCase())) {
+            message.delete();
+            try {
+                let embed = new Discord.RichEmbed()
+                .setColor("#1a1a1a")
+                .setDescription('Получен доступ к тестовой команде.')
+                .setFooter("Ильич")
+                .setTimestamp();
+                    message.channel.send(embed)
+                    accession = true
+            } catch (error) {
+                message.channel.send(`Не удалось оправить сообщения по причине ${error}`);
+            }
+        }
+    
+
+        if (['нет', 'неа', 'ноуп'].includes(msg.content.toLowerCase())) {
+            message.delete();
+            try {
+                let embed = new Discord.RichEmbed()
+                    .setColor("#1a1a1a")
+                    .setDescription('В доступе к тестовой команде отказано')
+                    .setFooter("Ильич")
+                    .setTimestamp();
+                    message.channel.send(embed)
+                    accession = false
+                } catch (error) {
+                message.channel.send(`Не удалось оправить сообщения по причине ${error}`);
+            }
+        }
+        console.log(collector);
+        collector.stop();
+    });
+    }
+
+    if (accession == true && command == 'beta01') {            
+    const snekfetch = require('snekfetch');
+	if (!args.slice(0)
+	.join(' ')) return message.channel.send('Please, provide the text! Usage: hastebin <text>')
+	.then(msg => msg.delete({
+	timeout: 10000
+	}));
+	snekfetch.post('https://hastebin.com/documents')
+	.send(args.slice(0)
+	.join(' '))
+	.then(body => {
+	message.channel.send('Posted text to Hastebin\nURL: https://hastebin.com/' + body.body.key);
+	});
     }
 
     if (command === "sms" || command === "mms" || command === "Передай" || command === "передай") {
@@ -752,6 +806,7 @@ client.on("message", async message => {
             .setFooter("Ильич");
         message.channel.send({ embed });
     }
+
 
 });
 
