@@ -24,7 +24,7 @@ client.on("ready", () => {
 
 client.on("ready", () => {
     console.log(`Ильич включен, находится на ${client.guilds.size} серверах`);
-    client.user.setStatus("invisible");
+    client.user.setStatus("dnd");
     client.user.setPresence({ game: {} }).catch();
 });
 
