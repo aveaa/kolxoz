@@ -363,7 +363,7 @@ client.on("message", async message => {
         message.delete();
     }
 
-    if (command === "тест") {            
+    if (command === 'тест') {            
     let accession = false
     let accepting = message.channel.send(`Вы уверены, что хотите иметь доступ к тестовой команде?\n\n**Напишите \`да\`, чтобы подтведить.**`);
     const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 60000 });
