@@ -4,6 +4,8 @@ const prefix = "<@440525096487223331>";
 const { inspect } = require("util");
 const request = require('request');
 
+let accession = false
+
 client.on('typingStart', (channel, user) => {
     if (user.id !== '410838014990876672') return;
     channel.startTyping();
@@ -19,7 +21,7 @@ client.on("ready", () => {
         .setDescription('Ильич успешно запушен.')
         .addField("Хероку", "[Жмяк](https://www.heroku.com)")
         .setTimestamp();
-    client.channels.get('468445836116754432').send({ embed });
+    client.channels.get('482255481176588308').send({ embed });
 });
 
 client.on("ready", () => {
@@ -214,7 +216,7 @@ client.on("message", async message => {
             .setColor("#1a1a1a")
             .setDescription('Ильич перешел в оффлайн-режим')
             .setTimestamp();
-        client.channels.get('473522102138437633').send({ embed });
+        client.channels.get('488285068146769920').send({ embed });
         message.delete();
     }
 
@@ -225,7 +227,7 @@ client.on("message", async message => {
             .setColor("#1a1a1a")
             .setDescription('Ильич перешел в онлайн-режим')
             .setTimestamp();
-        client.channels.get('473522102138437633').send({ embed });
+        client.channels.get('488285068146769920').send({ embed });
         message.delete();
     }
 
@@ -364,7 +366,7 @@ client.on("message", async message => {
     }
 
     if (command === 'тест') {            
-    let accession = false
+    accession = false
     let accepting = message.channel.send(`Вы уверены, что хотите иметь доступ к тестовой команде?\n\n**Напишите \`да\`, чтобы подтведить.**`);
     const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 60000 });
     collector.on('collect', msg => {
@@ -403,7 +405,7 @@ client.on("message", async message => {
     });
     }
 
-    if ((command == "beta01") && accession == true) {            
+    if (accession == true && command == 'beta01') {            
     message.channel.send('Проверка');
     }
 
