@@ -244,13 +244,13 @@ client.on("message", async message => {
             output = clean(output);
             if (output.length < 1950) {
                 message.author.send(`\`\`\`js\n${output}\n\`\`\``);
-                message.react("✅")
+                message.react("488341511390494732")
             } else {
                 message.author.send(`${output}`, { split: "\n", code: "js" });
             }
         } catch (error) {
             message.channel.send(`Произошла ошибка \`\`\`js\n${error}\`\`\``);
-            message.react("❎")
+            message.react("488341573701074944")
         }
 
         function clean(text) {
