@@ -403,7 +403,7 @@ client.on("message", async message => {
     });
     }
 
-    if (accession == true && command == 'beta01') {            
+    if ((command == "beta01") && accession == true) {            
     message.channel.send('Проверка');
     }
 
